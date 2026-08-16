@@ -1,5 +1,221 @@
-Meri Pehli Website
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Legal & General Application Formats | By Er. Meraj Ansari</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --accent: #2563eb;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
 
-    Namaste World!
-    Ye meri free website hai.
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            margin-bottom: 2rem;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: var(--accent);
+        }
+
+        .format-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .format-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .format-preview {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 0.9rem;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px dashed #cbd5e1;
+            margin: 1rem 0;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #0f172a;
+            color: white;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Legal & Official Application Formats</h1>
+        <p>A Free Public Utility Portal | Curated by Er. Meraj Ansari (Civil Engineer)</p>
+    </header>
+
+    <div class="container">
+        <input type="text" id="searchInput" class="search-box" onkeyup="searchFormats()" placeholder="Search format (e.g., Police, Mobile, Leave, Revenue)...">
+
+        <!-- Format 1 -->
+        <div class="format-card">
+            <h3>1. Mobile Khone Ki Police FIR / Complaint Application</h3>
+            <p>Police station me khoye hue mobile phone ki soochna dene ke liye application format.</p>
+            <div class="format-preview" id="format1">
+Seva me,
+Shri maan Thana Adhyaksh Ji,
+[Police Station ka Naam], [City Name]
+
+Vishay: Mobile Phone kho jaane ke sambandh me application.
+
+Mahoday,
+Nivedan hai ki mera naam [Aapka Naam] hai. Main [Aapka Pura Pata] ka niwasi hoon. 
+
+Dinaank [Tareekh] ko samay lagbhag [Samay] baje mera mobile phone [Jagah ka naam] ke paas kho gaya hai. Kaafi khojbeen ke baad bhi mobile nahi mila.
+
+Mobile ki details niche di gayi hain:
+1. Mobile Brand & Model: [Jaise: Samsung Galaxy M31]
+2. Mobile Number (SIM): [Aapka Number]
+3. IMEI Number 1: [15 Digit IMEI]
+4. IMEI Number 2: [15 Digit IMEI]
+
+Atah aapse nivedan hai ki kripya meri yeh shikayat darj karne ki kripa karein taaki iska galat istemal na ho sake.
+
+Dhananyawad.
+
+Bhavdiya,
+Naam: [Aapka Naam]
+Hastekshya: [Aapki Signature]
+Phone Number: [Aapka Dusra Number]
+Pata: [Aapka Pata]
+Dinaank: [Today Date]
+            </div>
+            <button class="btn" onclick="copyToClipboard('format1')">Copy Format Text</button>
+        </div>
+
+        <!-- Format 2 -->
+        <div class="format-card">
+            <h3>2. RTO / DL Loss Application Format</h3>
+            <p>Driving License kho jaane par Duplicate DL ya FIR ke liye application format.</p>
+            <div class="format-preview" id="format2">
+Seva me,
+Shri maan Thana Adhyaksh Ji,
+[Police Station Name], [City]
+
+Vishay: Driving License kho jaane ki Soochna hetu.
+
+Mahoday,
+Savinay nivedan hai ki mera naam [Aapka Naam] hai. Mera Original Driving License (DL Number: [DL Number]) dinaank [Tareekh] ko [Location] ke paas kahin gir gaya hai.
+
+Atah aapse prarthna hai ki kripya iski missing report darj karke mujhe Ukt Report ki copy pradaan karein taaki main RTO se duplicate DL issue karwa sakoon.
+
+Dhananyawad.
+
+Naam: [Aapka Naam]
+Mobile: [Mobile Number]
+Dinaank: [Date]
+            </div>
+            <button class="btn" onclick="copyToClipboard('format2')">Copy Format Text</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Legal Application Portal | Developed & Maintained by <strong>Er. Meraj Ansari</strong></p>
+    </footer>
+
+    <script>
+        function copyToClipboard(id) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Format successfully copy ho gaya hai!');
+            });
+        }
+
+        function searchFormats() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('format-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                let desc = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
+                
+                if (title.includes(input) || desc.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
