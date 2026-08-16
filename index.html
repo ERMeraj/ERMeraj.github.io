@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Legal & Official Application Generator | Er. Meraj Ansari</title>
+    <title>Indian Legal & Official Application Formats | Er. Meraj Ansari</title>
     <!-- html2pdf Library for Instant PDF Download -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         :root {
             --primary: #1e3a8a;
-            --accent: #2563eb;
+            --secondary: #2563eb;
+            --accent: #d97706;
             --bg: #f8fafc;
             --card-bg: #ffffff;
             --text: #1e293b;
@@ -40,7 +41,7 @@
             height: 110px;
             border-radius: 50%;
             border: 4px solid white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             margin-bottom: 0.8rem;
             object-fit: cover;
         }
@@ -49,9 +50,75 @@
         header p { margin-top: 0.4rem; opacity: 0.9; font-size: 1rem; }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 1.5rem auto;
             padding: 0 1rem;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .section-title {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 8px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
         }
 
         .form-card {
@@ -59,8 +126,8 @@
             border-radius: 12px;
             padding: 1.8rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border: 1px solid #e2e8f0;
-            margin-bottom: 2rem;
+            border: 2px solid var(--secondary);
+            margin-bottom: 2.5rem;
         }
 
         .form-group {
@@ -81,11 +148,6 @@
             border-radius: 6px;
             font-size: 0.95rem;
             box-sizing: border-box;
-            outline: none;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--accent);
         }
 
         .row {
@@ -93,9 +155,7 @@
             gap: 15px;
         }
 
-        .row .form-group {
-            flex: 1;
-        }
+        .row .form-group { flex: 1; }
 
         .btn-submit {
             background: linear-gradient(135deg, #2563eb, #1e3a8a);
@@ -107,11 +167,6 @@
             font-weight: bold;
             cursor: pointer;
             width: 100%;
-            transition: opacity 0.2s;
-        }
-
-        .btn-submit:hover {
-            opacity: 0.95;
         }
 
         .output-card {
@@ -121,6 +176,7 @@
             padding: 1.8rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             border: 1px solid #e2e8f0;
+            margin-bottom: 2rem;
         }
 
         .format-preview {
@@ -132,33 +188,14 @@
             border: 1px dashed #cbd5e1;
             margin: 1rem 0;
             color: #0f172a;
-            font-family: 'Segoe UI', Arial, sans-serif;
         }
-
-        .action-btns {
-            display: flex;
-            gap: 12px;
-            margin-top: 1rem;
-        }
-
-        .btn-action {
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .btn-pdf { background-color: #dc2626; }
 
         .loading {
             display: none;
             text-align: center;
             padding: 1.5rem;
             font-weight: bold;
-            color: var(--accent);
+            color: var(--secondary);
         }
 
         footer {
@@ -177,42 +214,44 @@
 <body>
 
     <header>
+        <!-- Aapki Updated Profile Photo -->
         <img src="IMG_5326 (1).JPEG" alt="Er. Meraj Ansari" class="profile-photo" onerror="this.style.display='none'">
-        <h1>AI Legal & Official Application Generator</h1>
-        <p>Instant Customized Application Writer | Curated by Er. Meraj Ansari (Civil Engineer)</p>
+        <h1>Legal & Official Application Portal</h1>
+        <p>Custom Formats & AI Writer | Created by Er. Meraj Ansari (Civil Engineer)</p>
     </header>
 
     <div class="container">
 
-        <div class="form-card">
-            <h2 style="margin-top: 0; color: var(--primary);">Apni Details Bharein (AI Application Maker)</h2>
-            
-            <div class="form-group">
-                <label>Gemini API Key (Optional / Required for Custom AI):</label>
-                <input type="password" id="apiKey" placeholder="Google Gemini API Key enter karein (aapkisite/user key)">
-                <small style="color: #64748b;">Aap free Gemini API key [aistudio.google.com](https://aistudio.google.com) se le sakte hain.</small>
-            </div>
+        <!-- Search Bar -->
+        <div class="search-box">
+            <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="Search format (e.g. Police, Bank, Land, FIR, RTI)...">
+        </div>
 
+        <!-- Section 1: AI Custom Generator -->
+        <div class="form-card">
+            <h2 style="margin-top: 0; color: var(--primary);">🤖 AI Custom Application Generator</h2>
+            <p style="font-size:0.9rem; color:#64748b;">Apni details bharein aur instant application tayyar karein.</p>
+            
             <div class="row">
                 <div class="form-group">
                     <label>Aapka Naam (Applicant Name):</label>
-                    <input type="text" id="userName" placeholder="Jaise: Meraj Ansari">
+                    <input type="text" id="userName" placeholder="Ex: Meraj Ansari">
                 </div>
                 <div class="form-group">
                     <label>Mobile Number:</label>
-                    <input type="text" id="userPhone" placeholder="Jaise: 9876543210">
+                    <input type="text" id="userPhone" placeholder="Ex: 9876543210">
                 </div>
             </div>
 
             <div class="form-group">
                 <label>Aapka Pura Pata (Address):</label>
-                <input type="text" id="userAddress" placeholder="Jaise: Gram- Post-, Thana-, Zila-">
+                <input type="text" id="userAddress" placeholder="Ex: Gram-, Post-, Thana-, Zila-">
             </div>
 
             <div class="row">
                 <div class="form-group">
-                    <label>Kisko Application Deni Hai (To Whom):</label>
-                    <input type="text" id="recipient" placeholder="Jaise: Thana Adhyaksh Ji / Bank Manager / CO / Tehsildar">
+                    <label>Kisko Application Deni Hai (Recipient):</label>
+                    <input type="text" id="recipient" placeholder="Ex: Thana Adhyaksh / Bank Manager / CO">
                 </div>
                 <div class="form-group">
                     <label>Bhasha (Language):</label>
@@ -224,8 +263,8 @@
             </div>
 
             <div class="form-group">
-                <label>Application Ka Khas Wajah / Topic (Detail description):</label>
-                <textarea id="appReason" rows="4" placeholder="Detail me likhein: Jaise mera mobile realme C35 chowk par kho gaya, ya padosi ne marpit ki aur jaan se maarne ki dhamki di, ya bank passbook kho gayi..."></textarea>
+                <label>Wajah / Description (Kyon likh rahe hain):</label>
+                <textarea id="appReason" rows="3" placeholder="Detail me likhein: Jaise Mobile kho gaya hai, FIR karni hai, Bank account unfreeze karwana hai, etc."></textarea>
             </div>
 
             <button class="btn-submit" onclick="generateApplicationWithAI()">⚡ AI Se Application Banayein</button>
@@ -236,13 +275,54 @@
         </div>
 
         <div class="output-card" id="outputBox">
-            <h3 style="color: var(--primary); margin-top: 0;">Aapki Customized Application Ready Hai:</h3>
+            <h3 style="color: var(--primary); margin-top: 0;">Aapki Generated Application:</h3>
             <div class="format-preview" id="aiGeneratedText"></div>
             
-            <div class="action-btns">
-                <button class="btn-action" onclick="copyAIText()">Copy Application Text</button>
-                <button class="btn-action btn-pdf" onclick="downloadAIPDF()">Download PDF</button>
+            <button class="btn" onclick="copyAIText()">Copy Text</button>
+            <button class="btn" style="background:#dc2626;" onclick="downloadAIPDF()">Download PDF</button>
+        </div>
+
+        <!-- Section 2: Standard Application Formats (Readymade Cards) -->
+        <h2 class="section-title">📌 Ready-made Application Templates</h2>
+        
+        <div class="card-grid" id="cardGrid">
+            
+            <div class="card">
+                <h3>Police FIR / Complaint</h3>
+                <p>Mobile chori, chori, maar-peet ya koi anya ghatna ki police FIR likhne ka format.</p>
+                <button class="btn" onclick="showTemplate('police')">View Format</button>
             </div>
+
+            <div class="card">
+                <h3>Bank Application</h3>
+                <p>ATM Card apply, Passbook reissue, ya Account Unfreeze karne ki application.</p>
+                <button class="btn" onclick="showTemplate('bank')">View Format</button>
+            </div>
+
+            <div class="card">
+                <h3>Land & Revenue (Zameen Napai)</h3>
+                <p>Circle Officer (CO) / Tehsildar ko zameen napai ya simankan ke liye aavedan.</p>
+                <button class="btn" onclick="showTemplate('land')">View Format</button>
+            </div>
+
+            <div class="card">
+                <h3>RTI Application (Soochna Ka Adhikar)</h3>
+                <p>Kisi bhi sarkari vibhag se jaankari maangne ke liye RTI format.</p>
+                <button class="btn" onclick="showTemplate('rti')">View Format</button>
+            </div>
+
+            <div class="card">
+                <h3>Electricity Department</h3>
+                <p>Naya meter lagwane ya meter bill thik karwane ke liye aavedan patra.</p>
+                <button class="btn" onclick="showTemplate('electricity')">View Format</button>
+            </div>
+
+            <div class="card">
+                <h3>Block / Panchayat Level</h3>
+                <p>Jati, Aawasiya, Aay praman patra ya pension ke sambandh me aavedan.</p>
+                <button class="btn" onclick="showTemplate('block')">View Format</button>
+            </div>
+
         </div>
 
     </div>
@@ -253,7 +333,8 @@
 
     <script>
         async function generateApplicationWithAI() {
-            const apiKey = document.getElementById('apiKey').value.trim();
+            const HARDCODED_KEY = "AQ.Ab8RN6Kzc5Mt6ufjrGv7NvcHdXcSXTGBNP9ZaFXmEIxvDl2HYQ";
+
             const name = document.getElementById('userName').value.trim();
             const phone = document.getElementById('userPhone').value.trim();
             const address = document.getElementById('userAddress').value.trim();
@@ -263,11 +344,6 @@
 
             if (!name || !reason) {
                 alert('Kripya apna naam aur application ka reason zaroor bharein!');
-                return;
-            }
-
-            if (!apiKey) {
-                alert('Kripya AI Feature ke liye apni Google Gemini API Key enter karein!');
                 return;
             }
 
@@ -285,10 +361,10 @@
             Requirements:
             - Use proper official format (Seva me / To, Subject/Vishay, Salutation, Body paragraphs, Request, Signature block).
             - Keep exact placeholders or filled data where provided.
-            - Format it neatly so it is ready to print. Do not include markdown code block syntax (like \`\`\`html or \`\`\`text), just plain text format.`;
+            - Format it neatly so it is ready to print. Do not include markdown code block syntax.`;
 
             try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${HARDCODED_KEY}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -303,7 +379,7 @@
                     document.getElementById('aiGeneratedText').innerText = resultText;
                     document.getElementById('outputBox').style.display = 'block';
                 } else {
-                    alert('API response error. Kripya sahi API Key check karein.');
+                    alert('API Error: Kripya Sahi Google Gemini API Key Check Karein.');
                 }
             } catch (error) {
                 alert('Connection error: ' + error.message);
@@ -314,22 +390,40 @@
 
         function copyAIText() {
             const text = document.getElementById('aiGeneratedText').innerText;
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Application text successfully copy ho gaya!');
-            });
+            navigator.clipboard.writeText(text).then(() => { alert('Copy ho gaya!'); });
         }
 
         function downloadAIPDF() {
-            const element = document.getElementById('aiGeneratedText') const apiKey = document.getElementById('apiKey').value.trim() || "AQ.Ab8RN6Kzc5Mt6ufjrGv7NvcHdXcSXTGBNP9ZaFXmEIxvDl2HYQ";
-            const opt = {
-                margin:       0.5,
-                filename:     'Custom_Application.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2 },
-                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
+            const element = document.getElementById('aiGeneratedText');
+            html2pdf().from(element).save('Application.pdf');
+        }
 
-            html2pdf().set(opt).from(element).save();
+        function filterCards() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('card');
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                let desc = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
+                if (title.includes(input) || desc.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        function showTemplate(type) {
+            let text = "";
+            if (type === 'police') {
+                text = "सेवा में,\nश्रीमान थाना अध्यक्ष महोदय,\n[थाना का नाम], [ज़िला]\n\nविषय: मोबाइल खो जाने / चोरी होने के संबंध में आवेदन पत्र।\n\nमहोदय,\nसविनय निवेदन है कि मेरा नाम [आपका नाम] है। मैं [आपका पता] का निवासी हूँ।\nदिनांक [तारीख] को मेरा मोबाइल फोन [स्थान का नाम] पर खो गया/चोरी हो गया है।\n\nमोबाइल विवरण:\n- कंपनी/मॉडल: [Model]\n- IMEI Number: [IMEI]\n- सिम नंबर: [Mobile No]\n\nअतः आपसे निवेदन है कि मेरी शिकायत दर्ज कर उचित कानूनी कार्रवाई करने की कृपा करें।\n\nभवदीय,\n[आपका नाम]\n[फ़ोन नंबर]\n[हस्ताक्षर]";
+            } else if (type === 'bank') {
+                text = "सेवा में,\nश्रीमान शाखा प्रबंधक (Branch Manager),\n[बैंक का नाम], [शाखा का नाम]\n\nविषय: नया एटीएम कार्ड जारी करने हेतु आवेदन पत्र।\n\nमहोदय,\nसविनय निवेदन है कि मेरा एक बचत खाता आपकी शाखा में है, जिसका खाता संख्या [Account Number] है।\nमेरा पुराना एटीएम कार्ड खो गया है, जिसके कारण मुझे लेन-देन में असुविधा हो रही है।\n\nअतः आपसे निवेदन है कि मेरे खाते पर नया एटीएम कार्ड जारी करने की कृपा करें।\n\nधन्यवाद।\n\nखाताधारक:\nनाम: [आपका नाम]\nखाता संख्या: [Account No]\nमो०: [Mobile No]\nहस्ताक्षर: __________";
+            } else {
+                text = "सेवा में,\nश्रीमान अंचलाधिकारी (CO) महोदय,\n[अंचल का नाम], [ज़िला]\n\nविषय: भूमि सीमांकन / नपाई हेतु आवेदन पत्र।\n\nमहोदय,\nसप्रेम निवेदन है कि प्रार्थी [आपका नाम], ग्राम [गाँव], थाना [थाना] का निवासी है।\nप्रार्थी की मौज़ा [मौजा] में खाता सं० [Khata], खेसरा सं० [Khesra] की भूमि स्थित है।\n\nअतः श्रीमान से प्रार्थना है कि उक्त भूमि की सरकारी अमीन द्वारा नपाई कराने की कृपा की जाए।\n\nभवदीय,\n[आपका नाम]\n[मोबाइल नंबर]";
+            }
+            document.getElementById('aiGeneratedText').innerText = text;
+            document.getElementById('outputBox').style.display = 'block';
+            window.scrollTo({ top: document.getElementById('outputBox').offsetTop - 20, behavior: 'smooth' });
         }
     </script>
 </body>
