@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indian Legal & Official Application Formats | By Er. Meraj Ansari</title>
+    <!-- html2pdf Library for Instant PDF Download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         :root {
             --primary: #1e3a8a;
@@ -14,7 +16,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
@@ -26,41 +28,49 @@
             background: linear-gradient(135deg, #1e3a8a, #3b82f6);
             color: white;
             text-align: center;
-            padding: 2.5rem 1rem;
+            padding: 2rem 1rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.2rem;
-        }
-
-        header p {
-            margin-top: 0.5rem;
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
+        header h1 { margin: 0; font-size: 2rem; }
+        header p { margin-top: 0.5rem; opacity: 0.9; font-size: 1rem; }
 
         .container {
             max-width: 1000px;
-            margin: 2rem auto;
+            margin: 1.5rem auto;
             padding: 0 1rem;
+        }
+
+        /* Controls Panel for Font & Appearance */
+        .controls-panel {
+            background: #e2e8f0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .controls-panel label { font-weight: bold; font-size: 0.9rem; }
+        .controls-panel select, .controls-panel button {
+            padding: 6px 10px;
+            border-radius: 5px;
+            border: 1px solid #cbd5e1;
+            font-size: 0.9rem;
+            cursor: pointer;
         }
 
         .search-box {
             width: 100%;
             padding: 12px 20px;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             border: 2px solid #cbd5e1;
             border-radius: 8px;
             font-size: 1rem;
             box-sizing: border-box;
             outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .search-box:focus {
-            border-color: var(--accent);
         }
 
         .category-title {
@@ -69,7 +79,7 @@
             padding-left: 10px;
             margin-top: 2rem;
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
         }
 
         .format-card {
@@ -81,44 +91,63 @@
             border: 1px solid #e2e8f0;
         }
 
-        .format-card h3 {
-            margin-top: 0;
-            color: var(--primary);
+        .format-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .format-header h3 { margin: 0; color: var(--primary); font-size: 1.2rem; }
+
+        .lang-btn {
+            background-color: #64748b;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
         }
 
         .format-preview {
             background: #f1f5f9;
-            padding: 1rem;
+            padding: 1.2rem;
             border-radius: 6px;
-            font-family: monospace;
             white-space: pre-wrap;
-            font-size: 0.9rem;
-            max-height: 220px;
-            overflow-y: auto;
+            font-size: 0.95rem;
             border: 1px dashed #cbd5e1;
             margin: 1rem 0;
+            color: #0f172a;
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         .btn {
             background-color: var(--accent);
             color: white;
             border: none;
-            padding: 10px 18px;
+            padding: 8px 16px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
-            transition: background 0.2s;
+            font-size: 0.9rem;
         }
 
-        .btn:hover {
-            background-color: var(--primary);
-        }
+        .btn-pdf { background-color: #dc2626; }
+        .btn-pdf:hover { background-color: #991b1b; }
+        .btn:hover { background-color: var(--primary); }
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 1.5rem;
             background: #0f172a;
             color: white;
             margin-top: 3rem;
@@ -133,15 +162,115 @@
     </header>
 
     <div class="container">
-        <input type="text" id="searchInput" class="search-box" onkeyup="searchFormats()" placeholder="Search format (e.g., Police, Bank, Transfer, Meter, Zameen)...">
 
-        <!-- Police & Complaint Section -->
-        <h2 class="category-title">1. Police & General Complaints</h2>
+        <!-- Customization Controls -->
+        <div class="controls-panel">
+            <label>Font Family:</label>
+            <select id="fontSelect" onchange="changeFont(this.value)">
+                <option value="'Segoe UI', sans-serif">Default (Segoe UI)</option>
+                <option value="Arial, sans-serif">Arial</option>
+                <option value="'Courier New', monospace">Courier (Typewriter)</option>
+                <option value="Georgia, serif">Georgia (Formal)</option>
+            </select>
 
+            <label>Text Size:</label>
+            <button onclick="changeFontSize('small')">A-</button>
+            <button onclick="changeFontSize('normal')">A</button>
+            <button onclick="changeFontSize('large')">A+</button>
+        </div>
+
+        <input type="text" id="searchInput" class="search-box" onkeyup="searchFormats()" placeholder="Search format (e.g., Police, Fraud, Marpit, Bank, Land)...">
+
+        <!-- SECTION 1: POLICE & CRIMINAL MATTERS -->
+        <h2 class="category-title">1. Police Station FIR & Criminal Cases</h2>
+
+        <!-- Complaint 1: Marpit & Physical Attack -->
         <div class="format-card">
-            <h3>Mobile Khone Ki Police FIR / Complaint</h3>
-            <p>Police station me khoye hue mobile phone ki report likhwane ke liye application.</p>
-            <div class="format-preview" id="format1">
+            <div class="format-header">
+                <h3>Maar-Peet / Physical Assault FIR Complaint</h3>
+                <button class="lang-btn" onclick="toggleLanguage('format_marpit')">Switch to English / Hindi</button>
+            </div>
+            <p>Aahata, maar-peet aur jaan se maarne ki dhamki ki FIR darj karwane hetu format.</p>
+            
+            <div class="format-preview" id="format_marpit" data-lang="hi">
+Seva me,
+Shri maan Thana Adhyaksh Ji,
+[Police Station ka Naam], [Zila/City Name]
+
+Vishay: Maar-peet, gaali-galoch aur jaan se maarne ki dhamki dene ke sambandh me FIR darj karne hetu.
+
+Mahoday,
+Savinay nivedan hai ki mera naam [Aapka Naam] hai. Main [Aapka Pura Pata] ka niwasi hoon.
+
+Dinaank [Date] ko samay lagbhag [Time] baje main [Jagah ka Naam] par tha. Tabhi achanak [Aropi ka Naam / Agyat log] aaye aur bina kisi wajah ke mujhe gaali-galoch karne lage. Jab maine virodh kiya toh unhone [Lathi/Danda/Pistol/Dharadar Hathyar] se mujh par jaanleva hamla kar diya.
+
+Is hamle me mujhe [Shareer ke ang jahan chot aayi] par gambhir chot aayi hai aur unhone mujhe jaan se maarne ki dhamki bhi di hai. Ghatna ke samay wahan [Gawahon ke naam] maujood the jinhone mujhe bachaya.
+
+Atah aapse nivedan hai ki kripya ukt aropiyon ke khilaf uchit dharaon (IPC/BNS) ke tehat FIR darj kar kanooni karwai karne ki kripa karein aur mera Medical Examination karwayein.
+
+Dhananyawad.
+
+Aavedak,
+Naam: [Aapka Naam]
+Mobile: [Mobile Number]
+Pata: [Aapka Pata]
+Dinaank: [Date]
+            </div>
+            <div class="action-btns">
+                <button class="btn" onclick="copyToClipboard('format_marpit')">Copy Format Text</button>
+                <button class="btn btn-pdf" onclick="downloadPDF('format_marpit', 'Marpit_FIR_Format')">Download PDF</button>
+            </div>
+        </div>
+
+        <!-- Complaint 2: Cyber Fraud / Financial Online Scam -->
+        <div class="format-card">
+            <div class="format-header">
+                <h3>Financial Fraud / Online Scam Complaint</h3>
+                <button class="lang-btn" onclick="toggleLanguage('format_fraud')">Switch to English / Hindi</button>
+            </div>
+            <p>Paisa dhokhadhadi, online scam ya fake scheme me paise doobne par police me shikayat format.</p>
+            
+            <div class="format-preview" id="format_fraud" data-lang="hi">
+Seva me,
+Shri maan Thana Adhyaksh / Cyber Cell Incharge,
+[Police Station / Cyber Cell Name], [City]
+
+Vishay: Online Fraud / Dhokhadhadi dwara paise thagne ke sambandh me.
+
+Mahoday,
+Savinay nivedan hai ki mera naam [Aapka Naam] hai. Mera Bank Account [Bank Name], Account No: [Account Number] hai.
+
+Dinaank [Date] ko mujhe ek unknown number [Scammer ka Mobile Number] se call/message aaya. Unhone mujhe [Kaaran, jaise: Job Offer / Lottery / Fake Scheme] ka laalach dekar mere sath ₹[Rashi] ki dhokhadhadi kar li.
+
+Transaction ki details:
+1. Transaction ID: [UPI / Bank Reference No]
+2. Kitna Paisa Gaya: ₹[Amount]
+3. Jis Account me Gaya: [Aropi ka UPI/Bank Detail]
+
+Atah aapse prarthna hai ki is mamle ki janch karke mere paise wapas karwane aur aropi par kanooni karwai karne ki kripa karein.
+
+Dhananyawad.
+
+Aavedak,
+Naam: [Aapka Naam]
+Mobile: [Mobile Number]
+Dinaank: [Date]
+            </div>
+            <div class="action-btns">
+                <button class="btn" onclick="copyToClipboard('format_fraud')">Copy Format Text</button>
+                <button class="btn btn-pdf" onclick="downloadPDF('format_fraud', 'Fraud_Complaint_Format')">Download PDF</button>
+            </div>
+        </div>
+
+        <!-- Complaint 3: Mobile Khone ki Report -->
+        <div class="format-card">
+            <div class="format-header">
+                <h3>Mobile Phone Loss Complaint</h3>
+                <button class="lang-btn" onclick="toggleLanguage('format_mobile')">Switch to English / Hindi</button>
+            </div>
+            <p>Mobile kho jaane par police report ka format.</p>
+            
+            <div class="format-preview" id="format_mobile" data-lang="hi">
 Seva me,
 Shri maan Thana Adhyaksh Ji,
 [Police Station ka Naam], [City Name]
@@ -149,76 +278,56 @@ Shri maan Thana Adhyaksh Ji,
 Vishay: Mobile Phone kho jaane ke sambandh me application.
 
 Mahoday,
-Nivedan hai ki mera naam [Aapka Naam] hai. Main [Aapka Pura Pata] ka niwasi hoon. 
+Nivedan hai ki mera naam [Aapka Naam] hai. Main [Aapka Pata] ka niwasi hoon. 
 
-Dinaank [Tareekh] ko samay lagbhag [Samay] baje mera mobile phone [Jagah ka naam] ke paas kho gaya hai. Kaafi khojbeen ke baad bhi mobile nahi mila.
+Dinaank [Tareekh] ko samay lagbhag [Samay] baje mera mobile phone [Location] ke paas kho gaya hai. Kaafi khojbeen ke baad bhi nahi mila.
 
-Mobile ki details:
-1. Mobile Brand & Model: [Samsung / Redmi etc.]
-2. Mobile Number (SIM): [Aapka Number]
-3. IMEI Number 1: [15 Digit IMEI]
-4. IMEI Number 2: [15 Digit IMEI]
+Mobile details:
+1. Brand & Model: [Samsung / iPhone / Redmi]
+2. Mobile Number: [SIM Number]
+3. IMEI Number: [IMEI Number]
 
-Atah aapse nivedan hai ki kripya meri yeh shikayat darj karne ki kripa karein.
+Atah aapse nivedan hai ki kripya meri yeh shikayat darj karne ki kripa karein taaki iska misuse na ho.
 
 Dhananyawad.
 
 Bhavdiya,
 Naam: [Aapka Naam]
-Phone Number: [Aapka Number]
-Pata: [Aapka Pata]
-Dinaank: [Date]
-            </div>
-            <button class="btn" onclick="copyToClipboard('format1')">Copy Format Text</button>
-        </div>
-
-        <div class="format-card">
-            <h3>Driving License (DL) Loss Application</h3>
-            <p>RTO ya Police station me duplicate DL ya FIR ke liye application.</p>
-            <div class="format-preview" id="format2">
-Seva me,
-Shri maan Thana Adhyaksh Ji,
-[Police Station Name], [City]
-
-Vishay: Driving License kho jaane ki Soochna hetu.
-
-Mahoday,
-Savinay nivedan hai ki mera naam [Aapka Naam] hai. Mera Original Driving License (DL Number: [DL Number]) dinaank [Tareekh] ko [Location] ke paas kahin gir gaya hai.
-
-Atah aapse prarthna hai ki kripya iski missing report darj karke mujhe copy pradaan karein.
-
-Dhananyawad.
-
-Naam: [Aapka Naam]
 Mobile: [Mobile Number]
 Dinaank: [Date]
             </div>
-            <button class="btn" onclick="copyToClipboard('format2')">Copy Format Text</button>
+            <div class="action-btns">
+                <button class="btn" onclick="copyToClipboard('format_mobile')">Copy Format Text</button>
+                <button class="btn btn-pdf" onclick="downloadPDF('format_mobile', 'Mobile_Loss_Format')">Download PDF</button>
+            </div>
         </div>
 
-        <!-- Banking Applications Section -->
-        <h2 class="category-title">2. Banking Applications</h2>
+        <!-- SECTION 2: BANKING & PUBLIC UTILITIES -->
+        <h2 class="category-title">2. Banking & Revenue Applications</h2>
 
+        <!-- Bank Account Branch Transfer -->
         <div class="format-card">
-            <h3>Bank Account Branch Transfer Application</h3>
-            <p>Apne bank account ko ek branch se doosri branch me transfer karwane ke liye application.</p>
-            <div class="format-preview" id="format3">
+            <div class="format-header">
+                <h3>Bank Account Branch Transfer Application</h3>
+                <button class="lang-btn" onclick="toggleLanguage('format_bank_transfer')">Switch to English / Hindi</button>
+            </div>
+            <p>Account ek branch se doosri branch transfer karwane ka application.</p>
+            
+            <div class="format-preview" id="format_bank_transfer" data-lang="hi">
 Seva me,
 Shri maan Shaakha Prabandhak (Branch Manager),
-[Bank Ka Naam, Jaise: State Bank of India],
-[Purani Branch Ka Naam aur Pata]
+[Bank Name], [Current Branch Name]
 
 Vishay: Bank Account doosri Branch me Transfer karwane hetu.
 
 Mahoday,
-Savinay nivedan hai ki mera aapki branch me ek bachat khata (Savings Account) hai, jiska account number [Aapka Account Number] hai.
+Savinay nivedan hai ki mera aapki branch me bachat khata (Savings Account) hai, jiska account number [Account Number] hai.
 
-Mera niwas sthan badal jaane ke kaaran ab mujhe purani branch se lenden karne me asuvidha hoti hai. Main apna khata aapki dusri branch [Nayi Branch Ka Naam aur IFSC Code] me transfer karwana chahta/chahti hoon.
+Mera niwas sthan badal jaane ke kaaran main apna khata aapki dusri branch [Nayi Branch Name & IFSC Code] me transfer karwana chahta hoon.
 
 Khate ki jankari:
 Khata Dharak ka Naam: [Aapka Naam]
 Account Number: [Account Number]
-Nayi Branch Ka Naam: [Nayi Branch]
 Nayi Branch Code/IFSC: [IFSC Code]
 
 Atah aapse nivedan hai ki mere khate ko jald se jald nayi branch me transfer karne ki kripa karein.
@@ -227,130 +336,13 @@ Dhananyawad.
 
 Bhavdiya,
 Naam: [Aapka Naam]
-Account No: [Account Number]
-Mobile No: [Mobile Number]
-Dinaank: [Date]
-            </div>
-            <button class="btn" onclick="copyToClipboard('format3')">Copy Format Text</button>
-        </div>
-
-        <div class="format-card">
-            <h3>New Passbook Request Application</h3>
-            <p>Passbook bhar jaane ya kho jaane par nayi passbook lene ke liye application.</p>
-            <div class="format-preview" id="format4">
-Seva me,
-Shri maan Shaakha Prabandhak,
-[Bank Ka Naam], [Branch Name]
-
-Vishay: Nayi Passbook jaari karne hetu application.
-
-Mahoday,
-Mera naam [Aapka Naam] hai aur mera account number [Account Number] aapke bank me hai. Meri purani passbook [Poori bhar chuki hai / Kho gayi hai]. 
-
-Mujhe aage ke lenden ke liye nayi passbook ki aavashyakta hai. Atah aapse nivedan hai ki mujhe nayi passbook jaari karne ki kripa karein.
-
-Dhananyawad.
-
-Bhavdiya,
-Naam: [Aapka Naam]
-Account No: [Account Number]
 Mobile: [Mobile Number]
 Dinaank: [Date]
             </div>
-            <button class="btn" onclick="copyToClipboard('format4')">Copy Format Text</button>
-        </div>
-
-        <div class="format-card">
-            <h3>Bank Account Closure Application</h3>
-            <p>Purana ya unused bank account band karwane ke liye application.</p>
-            <div class="format-preview" id="format5">
-Seva me,
-Shri maan Shaakha Prabandhak,
-[Bank Ka Naam], [Branch Name]
-
-Vishay: Bank Account Band (Close) karwane hetu.
-
-Mahoday,
-Nivedan hai ki mera aapke bank me bachat khata number [Account Number] hai. [Kaaran, jaise: Kisi vyaktigat kaaran se / Khate ka istemal na hone se] main is khate ko aage nahi chalana chahta/chahti hoon.
-
-Atah aapse nivedan hai ki mere is bank account ko band karke isme bachi hui rashi [Cash de dein / Dusre account me bhej dein].
-
-Khata Dharak Ka Naam: [Aapka Naam]
-Account Number: [Account Number]
-
-Dhananyawad.
-
-Bhavdiya,
-Naam: [Aapka Naam]
-Mobile: [Mobile Number]
-Dinaank: [Date]
+            <div class="action-btns">
+                <button class="btn" onclick="copyToClipboard('format_bank_transfer')">Copy Format Text</button>
+                <button class="btn btn-pdf" onclick="downloadPDF('format_bank_transfer', 'Bank_Transfer_Format')">Download PDF</button>
             </div>
-            <button class="btn" onclick="copyToClipboard('format5')">Copy Format Text</button>
-        </div>
-
-        <!-- Utilities & Civil Engineering Related Section -->
-        <h2 class="category-title">3. Public Utilities & Revenue (Zameen/Bijli)</h2>
-
-        <div class="format-card">
-            <h3>Electricity Meter Faulty / Bill Correction Application</h3>
-            <p>Bijli ka meter kharab hone ya galat bill aane par bijli vibhag ko application.</p>
-            <div class="format-preview" id="format6">
-Seva me,
-Shri maan Sahayak Abhiyanta (Assistant Engineer),
-Vidhyut Vitran Vibhag (Electricity Department),
-[Aapke ilake ka naam, City]
-
-Vishay: Kharab Bijli Meter badalne / Bill Sahi karne hetu.
-
-Mahoday,
-Savinay nivedan hai ki main [Aapka Naam], [Aapka Pata] ka niwasi hoon. Mera Consumer Number / Meter Connection Number [Consumer Number] hai.
-
-Pichle kuch dino se mera bijli ka meter [Bohot tez chal raha hai / Band ho gaya hai / Galat reading de raha hai], jis wajah se mera bill bohot zyada aaya hai.
-
-Atah aapse prarthna hai ki kripya meter ki jaanch karwa kar ise badalne ya bill ko sahi karne ki kripa karein.
-
-Dhananyawad.
-
-Bhavdiya,
-Naam: [Aapka Naam]
-Consumer Number: [Consumer ID]
-Mobile: [Mobile Number]
-Dinaank: [Date]
-            </div>
-            <button class="btn" onclick="copyToClipboard('format6')">Copy Format Text</button>
-        </div>
-
-        <div class="format-card">
-            <h3>Zameen Napai / Land Survey Application (Revenue Dept)</h3>
-            <p>Zameen ki sar सरकारी napai (demarcation) karwane ke liye CO/Tehsildar ko application.</p>
-            <div class="format-preview" id="format7">
-Seva me,
-Shri maan Tehsildar / Anumandaliya Adhikari (CO) Ji,
-[Tehsil / Anumandal Ka Naam], [District Name]
-
-Vishay: Zameen ki sarkari napai (Demarcation) karwane hetu.
-
-Mahoday,
-Nivedan hai ki main [Aapka Naam], Gram: [Gaon/Mohalla], Thana: [Thana], Zila: [District] ka sthayi niwasi hoon.
-
-Meri katha/khesra sankhya ki zameen ki jankari niche di gayi hai:
-1. Khata Number: [Khata No]
-2. Khesra / Plot Number: [Khesra No]
-3. Rakba (Area): [Kitni Zameen Hai]
-
-Mera padosi se seema ko lekar vivad ho raha hai, isliye main apni zameen ki sarkari amin dwara napai karwana chahta hoon. Sarkari shulk jama karne ko taiyar hoon.
-
-Atah aapse nivedan hai ki kripya Amin ko aadesh dekar zameen ki napai karwane ki kripa karein.
-
-Dhananyawad.
-
-Aavedak,
-Naam: [Aapka Naam]
-Pata: [Aapka Pata]
-Mobile No: [Mobile Number]
-Dinaank: [Date]
-            </div>
-            <button class="btn" onclick="copyToClipboard('format7')">Copy Format Text</button>
         </div>
 
     </div>
@@ -360,28 +352,189 @@ Dinaank: [Date]
     </footer>
 
     <script>
+        // Language English Translations Data
+        const englishTranslations = {
+            format_marpit: `To,
+The Station House Officer (S.H.O.),
+[Police Station Name], [City/District]
+
+Subject: Application for registration of FIR regarding physical assault and death threats.
+
+Respected Sir,
+I beg to state that I am [Your Name], resident of [Your Address].
+
+On [Date] at around [Time], I was present at [Location]. Suddenly, [Accused Persons / Unknown Persons] approached me and started verbally abusing me without reason. When I protested, they physically assaulted me with [Lathi/Rod/Weapons] with an intent to cause grievous hurt.
+
+I suffered serious injuries on [Body Parts] and they also threatened to kill me. The incident was witnessed by [Witness Names] who intervened to save my life.
+
+Therefore, I request you to kindly register an FIR against the accused persons under appropriate sections of law and arrange for my medical examination.
+
+Thanking You.
+
+Applicant,
+Name: [Your Name]
+Mobile: [Your Number]
+Date: [Date]`,
+
+            format_fraud: `To,
+The Cyber Cell Incharge / S.H.O.,
+[Police Station / Cyber Cell Name], [City]
+
+Subject: Complaint regarding online financial fraud and cheating.
+
+Respected Sir,
+I am [Your Name], holding a savings account in [Bank Name], Account No: [Account Number].
+
+On [Date], I received a call/message from [Scammer Mobile Number]. The fraudster deceived me under the pretext of [Job Offer / Investment / Scheme] and fraudulently debited ₹[Amount] from my account.
+
+Transaction Details:
+1. Transaction Reference ID: [UPI/Ref No]
+2. Amount Frauded: ₹[Amount]
+3. Beneficiary Account/UPI: [Scammer Details]
+
+Therefore, I request you to register my complaint, initiate legal action, and help recover my money.
+
+Thanking You.
+
+Complainant,
+Name: [Your Name]
+Mobile: [Your Mobile Number]
+Date: [Date]`,
+
+            format_mobile: `To,
+The Station House Officer (S.H.O.),
+[Police Station Name], [City Name]
+
+Subject: Application regarding loss of mobile phone.
+
+Respected Sir,
+I am [Your Name], residing at [Your Address].
+
+On [Date] at around [Time], I lost my mobile phone near [Location]. Despite searching thoroughly, I could not trace it.
+
+Mobile Details:
+1. Brand & Model: [Samsung / iPhone / Redmi]
+2. Mobile Number: [SIM Number]
+3. IMEI Number: [IMEI Number]
+
+I request you to register a missing report for the same to prevent any misuse.
+
+Thanking You.
+
+Applicant,
+Name: [Your Name]
+Mobile Number: [Your Number]
+Date: [Date]`,
+
+            format_bank_transfer: `To,
+The Branch Manager,
+[Bank Name], [Current Branch Name]
+
+Subject: Application for transfer of Bank Account to another branch.
+
+Respected Sir,
+I hold a Savings Account with your branch having Account Number [Account Number].
+
+Due to relocation of my residence, I request you to transfer my account to your [New Branch Name & IFSC Code].
+
+Account Details:
+Account Holder Name: [Your Name]
+Account Number: [Account Number]
+New Branch IFSC: [IFSC Code]
+
+Kindly process the transfer at the earliest.
+
+Thanking You.
+
+Yours faithfully,
+Name: [Your Name]
+Mobile: [Your Number]
+Date: [Date]`
+        };
+
+        const hindiTranslations = {};
+
+        // Store initial Hindi text on load
+        window.onload = function() {
+            const cards = document.querySelectorAll('.format-preview');
+            cards.forEach(card => {
+                hindiTranslations[card.id] = card.innerText;
+            });
+        };
+
+        // Language Switcher
+        function toggleLanguage(id) {
+            const element = document.getElementById(id);
+            const currentLang = element.getAttribute('data-lang');
+
+            if (currentLang === 'hi') {
+                if (englishTranslations[id]) {
+                    element.innerText = englishTranslations[id];
+                    element.setAttribute('data-lang', 'en');
+                }
+            } else {
+                if (hindiTranslations[id]) {
+                    element.innerText = hindiTranslations[id];
+                    element.setAttribute('data-lang', 'hi');
+                }
+            }
+        }
+
+        // PDF Generator Function
+        function downloadPDF(elementId, filename) {
+            const element = document.getElementById(elementId);
+            const opt = {
+                margin:       0.5,
+                filename:     filename + '.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save();
+        }
+
+        // Copy Text Function
         function copyToClipboard(id) {
             const text = document.getElementById(id).innerText;
             navigator.clipboard.writeText(text).then(() => {
-                alert('Format successfully copy ho gaya hai!');
+                alert('Format copy ho gaya hai!');
             });
         }
 
+        // Search Filter
         function searchFormats() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('format-card');
-            let titles = document.getElementsByClassName('category-title');
 
             for (let i = 0; i < cards.length; i++) {
                 let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
                 let desc = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
+                let text = cards[i].getElementsByClassName('format-preview')[0].innerText.toLowerCase();
                 
-                if (title.includes(input) || desc.includes(input)) {
+                if (title.includes(input) || desc.includes(input) || text.includes(input)) {
                     cards[i].style.display = "";
                 } else {
                     cards[i].style.display = "none";
                 }
             }
+        }
+
+        // Font Change Functions
+        function changeFont(fontFamily) {
+            document.querySelectorAll('.format-preview').forEach(el => {
+                el.style.fontFamily = fontFamily;
+            });
+        }
+
+        function changeFontSize(size) {
+            let fontSize = '0.95rem';
+            if (size === 'small') fontSize = '0.8rem';
+            if (size === 'large') fontSize = '1.2rem';
+
+            document.querySelectorAll('.format-preview').forEach(el => {
+                el.style.fontSize = fontSize;
+            });
         }
     </script>
 </body>
