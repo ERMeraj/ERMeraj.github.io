@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian Legal & General Application Formats | By Er. Meraj Ansari</title>
+    <title>Indian Legal & Official Application Formats | By Er. Meraj Ansari</title>
     <style>
         :root {
             --primary: #1e3a8a;
@@ -63,6 +63,15 @@
             border-color: var(--accent);
         }
 
+        .category-title {
+            color: var(--primary);
+            border-left: 5px solid var(--accent);
+            padding-left: 10px;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
         .format-card {
             background: var(--card-bg);
             border-radius: 10px;
@@ -86,7 +95,7 @@
             font-family: monospace;
             white-space: pre-wrap;
             font-size: 0.9rem;
-            max-height: 200px;
+            max-height: 220px;
             overflow-y: auto;
             border: 1px dashed #cbd5e1;
             margin: 1rem 0;
@@ -124,12 +133,14 @@
     </header>
 
     <div class="container">
-        <input type="text" id="searchInput" class="search-box" onkeyup="searchFormats()" placeholder="Search format (e.g., Police, Mobile, Leave, Revenue)...">
+        <input type="text" id="searchInput" class="search-box" onkeyup="searchFormats()" placeholder="Search format (e.g., Police, Bank, Transfer, Meter, Zameen)...">
 
-        <!-- Format 1 -->
+        <!-- Police & Complaint Section -->
+        <h2 class="category-title">1. Police & General Complaints</h2>
+
         <div class="format-card">
-            <h3>1. Mobile Khone Ki Police FIR / Complaint Application</h3>
-            <p>Police station me khoye hue mobile phone ki soochna dene ke liye application format.</p>
+            <h3>Mobile Khone Ki Police FIR / Complaint</h3>
+            <p>Police station me khoye hue mobile phone ki report likhwane ke liye application.</p>
             <div class="format-preview" id="format1">
 Seva me,
 Shri maan Thana Adhyaksh Ji,
@@ -142,30 +153,28 @@ Nivedan hai ki mera naam [Aapka Naam] hai. Main [Aapka Pura Pata] ka niwasi hoon
 
 Dinaank [Tareekh] ko samay lagbhag [Samay] baje mera mobile phone [Jagah ka naam] ke paas kho gaya hai. Kaafi khojbeen ke baad bhi mobile nahi mila.
 
-Mobile ki details niche di gayi hain:
-1. Mobile Brand & Model: [Jaise: Samsung Galaxy M31]
+Mobile ki details:
+1. Mobile Brand & Model: [Samsung / Redmi etc.]
 2. Mobile Number (SIM): [Aapka Number]
 3. IMEI Number 1: [15 Digit IMEI]
 4. IMEI Number 2: [15 Digit IMEI]
 
-Atah aapse nivedan hai ki kripya meri yeh shikayat darj karne ki kripa karein taaki iska galat istemal na ho sake.
+Atah aapse nivedan hai ki kripya meri yeh shikayat darj karne ki kripa karein.
 
 Dhananyawad.
 
 Bhavdiya,
 Naam: [Aapka Naam]
-Hastekshya: [Aapki Signature]
-Phone Number: [Aapka Dusra Number]
+Phone Number: [Aapka Number]
 Pata: [Aapka Pata]
-Dinaank: [Today Date]
+Dinaank: [Date]
             </div>
             <button class="btn" onclick="copyToClipboard('format1')">Copy Format Text</button>
         </div>
 
-        <!-- Format 2 -->
         <div class="format-card">
-            <h3>2. RTO / DL Loss Application Format</h3>
-            <p>Driving License kho jaane par Duplicate DL ya FIR ke liye application format.</p>
+            <h3>Driving License (DL) Loss Application</h3>
+            <p>RTO ya Police station me duplicate DL ya FIR ke liye application.</p>
             <div class="format-preview" id="format2">
 Seva me,
 Shri maan Thana Adhyaksh Ji,
@@ -176,7 +185,7 @@ Vishay: Driving License kho jaane ki Soochna hetu.
 Mahoday,
 Savinay nivedan hai ki mera naam [Aapka Naam] hai. Mera Original Driving License (DL Number: [DL Number]) dinaank [Tareekh] ko [Location] ke paas kahin gir gaya hai.
 
-Atah aapse prarthna hai ki kripya iski missing report darj karke mujhe Ukt Report ki copy pradaan karein taaki main RTO se duplicate DL issue karwa sakoon.
+Atah aapse prarthna hai ki kripya iski missing report darj karke mujhe copy pradaan karein.
 
 Dhananyawad.
 
@@ -185,6 +194,163 @@ Mobile: [Mobile Number]
 Dinaank: [Date]
             </div>
             <button class="btn" onclick="copyToClipboard('format2')">Copy Format Text</button>
+        </div>
+
+        <!-- Banking Applications Section -->
+        <h2 class="category-title">2. Banking Applications</h2>
+
+        <div class="format-card">
+            <h3>Bank Account Branch Transfer Application</h3>
+            <p>Apne bank account ko ek branch se doosri branch me transfer karwane ke liye application.</p>
+            <div class="format-preview" id="format3">
+Seva me,
+Shri maan Shaakha Prabandhak (Branch Manager),
+[Bank Ka Naam, Jaise: State Bank of India],
+[Purani Branch Ka Naam aur Pata]
+
+Vishay: Bank Account doosri Branch me Transfer karwane hetu.
+
+Mahoday,
+Savinay nivedan hai ki mera aapki branch me ek bachat khata (Savings Account) hai, jiska account number [Aapka Account Number] hai.
+
+Mera niwas sthan badal jaane ke kaaran ab mujhe purani branch se lenden karne me asuvidha hoti hai. Main apna khata aapki dusri branch [Nayi Branch Ka Naam aur IFSC Code] me transfer karwana chahta/chahti hoon.
+
+Khate ki jankari:
+Khata Dharak ka Naam: [Aapka Naam]
+Account Number: [Account Number]
+Nayi Branch Ka Naam: [Nayi Branch]
+Nayi Branch Code/IFSC: [IFSC Code]
+
+Atah aapse nivedan hai ki mere khate ko jald se jald nayi branch me transfer karne ki kripa karein.
+
+Dhananyawad.
+
+Bhavdiya,
+Naam: [Aapka Naam]
+Account No: [Account Number]
+Mobile No: [Mobile Number]
+Dinaank: [Date]
+            </div>
+            <button class="btn" onclick="copyToClipboard('format3')">Copy Format Text</button>
+        </div>
+
+        <div class="format-card">
+            <h3>New Passbook Request Application</h3>
+            <p>Passbook bhar jaane ya kho jaane par nayi passbook lene ke liye application.</p>
+            <div class="format-preview" id="format4">
+Seva me,
+Shri maan Shaakha Prabandhak,
+[Bank Ka Naam], [Branch Name]
+
+Vishay: Nayi Passbook jaari karne hetu application.
+
+Mahoday,
+Mera naam [Aapka Naam] hai aur mera account number [Account Number] aapke bank me hai. Meri purani passbook [Poori bhar chuki hai / Kho gayi hai]. 
+
+Mujhe aage ke lenden ke liye nayi passbook ki aavashyakta hai. Atah aapse nivedan hai ki mujhe nayi passbook jaari karne ki kripa karein.
+
+Dhananyawad.
+
+Bhavdiya,
+Naam: [Aapka Naam]
+Account No: [Account Number]
+Mobile: [Mobile Number]
+Dinaank: [Date]
+            </div>
+            <button class="btn" onclick="copyToClipboard('format4')">Copy Format Text</button>
+        </div>
+
+        <div class="format-card">
+            <h3>Bank Account Closure Application</h3>
+            <p>Purana ya unused bank account band karwane ke liye application.</p>
+            <div class="format-preview" id="format5">
+Seva me,
+Shri maan Shaakha Prabandhak,
+[Bank Ka Naam], [Branch Name]
+
+Vishay: Bank Account Band (Close) karwane hetu.
+
+Mahoday,
+Nivedan hai ki mera aapke bank me bachat khata number [Account Number] hai. [Kaaran, jaise: Kisi vyaktigat kaaran se / Khate ka istemal na hone se] main is khate ko aage nahi chalana chahta/chahti hoon.
+
+Atah aapse nivedan hai ki mere is bank account ko band karke isme bachi hui rashi [Cash de dein / Dusre account me bhej dein].
+
+Khata Dharak Ka Naam: [Aapka Naam]
+Account Number: [Account Number]
+
+Dhananyawad.
+
+Bhavdiya,
+Naam: [Aapka Naam]
+Mobile: [Mobile Number]
+Dinaank: [Date]
+            </div>
+            <button class="btn" onclick="copyToClipboard('format5')">Copy Format Text</button>
+        </div>
+
+        <!-- Utilities & Civil Engineering Related Section -->
+        <h2 class="category-title">3. Public Utilities & Revenue (Zameen/Bijli)</h2>
+
+        <div class="format-card">
+            <h3>Electricity Meter Faulty / Bill Correction Application</h3>
+            <p>Bijli ka meter kharab hone ya galat bill aane par bijli vibhag ko application.</p>
+            <div class="format-preview" id="format6">
+Seva me,
+Shri maan Sahayak Abhiyanta (Assistant Engineer),
+Vidhyut Vitran Vibhag (Electricity Department),
+[Aapke ilake ka naam, City]
+
+Vishay: Kharab Bijli Meter badalne / Bill Sahi karne hetu.
+
+Mahoday,
+Savinay nivedan hai ki main [Aapka Naam], [Aapka Pata] ka niwasi hoon. Mera Consumer Number / Meter Connection Number [Consumer Number] hai.
+
+Pichle kuch dino se mera bijli ka meter [Bohot tez chal raha hai / Band ho gaya hai / Galat reading de raha hai], jis wajah se mera bill bohot zyada aaya hai.
+
+Atah aapse prarthna hai ki kripya meter ki jaanch karwa kar ise badalne ya bill ko sahi karne ki kripa karein.
+
+Dhananyawad.
+
+Bhavdiya,
+Naam: [Aapka Naam]
+Consumer Number: [Consumer ID]
+Mobile: [Mobile Number]
+Dinaank: [Date]
+            </div>
+            <button class="btn" onclick="copyToClipboard('format6')">Copy Format Text</button>
+        </div>
+
+        <div class="format-card">
+            <h3>Zameen Napai / Land Survey Application (Revenue Dept)</h3>
+            <p>Zameen ki sar सरकारी napai (demarcation) karwane ke liye CO/Tehsildar ko application.</p>
+            <div class="format-preview" id="format7">
+Seva me,
+Shri maan Tehsildar / Anumandaliya Adhikari (CO) Ji,
+[Tehsil / Anumandal Ka Naam], [District Name]
+
+Vishay: Zameen ki sarkari napai (Demarcation) karwane hetu.
+
+Mahoday,
+Nivedan hai ki main [Aapka Naam], Gram: [Gaon/Mohalla], Thana: [Thana], Zila: [District] ka sthayi niwasi hoon.
+
+Meri katha/khesra sankhya ki zameen ki jankari niche di gayi hai:
+1. Khata Number: [Khata No]
+2. Khesra / Plot Number: [Khesra No]
+3. Rakba (Area): [Kitni Zameen Hai]
+
+Mera padosi se seema ko lekar vivad ho raha hai, isliye main apni zameen ki sarkari amin dwara napai karwana chahta hoon. Sarkari shulk jama karne ko taiyar hoon.
+
+Atah aapse nivedan hai ki kripya Amin ko aadesh dekar zameen ki napai karwane ki kripa karein.
+
+Dhananyawad.
+
+Aavedak,
+Naam: [Aapka Naam]
+Pata: [Aapka Pata]
+Mobile No: [Mobile Number]
+Dinaank: [Date]
+            </div>
+            <button class="btn" onclick="copyToClipboard('format7')">Copy Format Text</button>
         </div>
 
     </div>
@@ -204,6 +370,7 @@ Dinaank: [Date]
         function searchFormats() {
             let input = document.getElementById('searchInput').value.toLowerCase();
             let cards = document.getElementsByClassName('format-card');
+            let titles = document.getElementsByClassName('category-title');
 
             for (let i = 0; i < cards.length; i++) {
                 let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
