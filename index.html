@@ -28,7 +28,6 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            /* Natural Scene Background Image with Soft Blur Overlay */
             background: linear-gradient(rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.45)), 
                         url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed;
             background-size: cover;
@@ -39,7 +38,6 @@
             min-height: 100vh;
         }
 
-        /* Glassmorphism Header */
         header {
             background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(12px);
@@ -95,7 +93,47 @@
             z-index: 10;
         }
 
-        /* Glassmorphism Search Box */
+        /* Floating Sidebar Quick Action Buttons */
+        .sidebar-actions {
+            position: fixed;
+            right: 15px;
+            top: 40%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        .side-btn {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .side-btn:hover {
+            background: #2563eb;
+            transform: translateX(-5px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
+        }
+
+        .side-btn.feedback { background: linear-gradient(135deg, #10b981, #059669); }
+        .side-btn.help { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .side-btn.order { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
+
+        /* Search Box */
         .search-box {
             display: flex;
             gap: 10px;
@@ -155,7 +193,7 @@
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 12px 16px;
-            border: 1.5 solid #cbd5e1;
+            border: 1.5px solid #cbd5e1;
             border-radius: 10px;
             font-size: 0.95rem;
             font-family: inherit;
@@ -176,7 +214,6 @@
 
         .row .form-group { flex: 1; }
 
-        /* Action Gradient Button */
         .btn-submit {
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #0284c7 100%);
             color: white;
@@ -208,7 +245,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
-        /* Output Card */
         .output-card {
             display: none;
             background: rgba(255, 255, 255, 0.95);
@@ -280,7 +316,6 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.6);
         }
 
-        /* Glassmorphism Cards Grid */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -350,7 +385,15 @@
             color: #ffffff;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+            .sidebar-actions {
+                position: static;
+                transform: none;
+                flex-direction: row;
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+            .side-btn { font-size: 0.8rem; padding: 8px 12px; }
             .row { flex-direction: column; gap: 0; }
             header h1 { font-size: 1.6rem; }
             .form-card { padding: 1.2rem; }
@@ -359,8 +402,14 @@
 </head>
 <body>
 
+    <!-- Floating Sidebar Quick Buttons -->
+    <div class="sidebar-actions">
+        <button class="side-btn feedback" onclick="openFeedback()"><i class="fa-solid fa-comment-dots"></i> Feedback</button>
+        <button class="side-btn help" onclick="openHelp()"><i class="fa-solid fa-envelope"></i> Help / Mail Us</button>
+        <button class="side-btn order" onclick="openOrder()"><i class="fa-solid fa-pen-nib"></i> App Order</button>
+    </div>
+
     <header>
-        <!-- Profile Photo -->
         <img src="IMG_5326 (1).JPEG" alt="Er. Meraj Ansari" class="profile-photo" onerror="this.style.display='none'">
         <h1>Legal & Official Application Portal</h1>
         <p><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Formats & AI Writer | Created by <strong>Er. Meraj Ansari</strong> (Civil Engineer)</p>
@@ -370,10 +419,10 @@
 
         <!-- Search Bar -->
         <div class="search-box">
-            <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="🔍 Search format (Police, Bank, Land, FIR, RTI, Electricity)...">
+            <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="🔍 Search (Police, Court, Bank, Resignation, PhonePe, College, RTI)...">
         </div>
 
-        <!-- Section 1: AI Custom Generator with Key Input -->
+        <!-- Section 1: AI Custom Generator -->
         <div class="form-card">
             <h2><i class="fa-solid fa-robot" style="color: #2563eb;"></i> AI Custom Application Generator</h2>
             <p style="font-size:0.9rem; color:#475569; margin-top:-5px;">Apni Google Gemini API Key paste karein aur 1-click me kisi bhi vishay par smart application generate karein.</p>
@@ -402,7 +451,7 @@
             <div class="row">
                 <div class="form-group">
                     <label><i class="fa-solid fa-building-user"></i> Kisko Application Deni Hai (Recipient):</label>
-                    <input type="text" id="recipient" placeholder="Ex: Thana Adhyaksh / Bank Manager / CO">
+                    <input type="text" id="recipient" placeholder="Ex: Court Notary / Principal / Manager / Thana Adhyaksh">
                 </div>
                 <div class="form-group">
                     <label><i class="fa-solid fa-language"></i> Bhasha (Language):</label>
@@ -415,7 +464,7 @@
 
             <div class="form-group">
                 <label><i class="fa-solid fa-pen-to-square"></i> Wajah / Description (Kyon likh rahe hain):</label>
-                <textarea id="appReason" rows="3" placeholder="Detail me likhein: Jaise Mobile kho gaya hai, FIR karni hai, Bank account unfreeze karwana hai, etc."></textarea>
+                <textarea id="appReason" rows="3" placeholder="Detail me likhein: Jaise Notary affidavit, PhonePe wrong payment refund, Resignation letter, College Leave/TC, Police FIR, etc."></textarea>
             </div>
 
             <button class="btn-submit" onclick="generateApplicationWithAI()"><i class="fa-solid fa-bolt"></i> AI Se Application Banayein</button>
@@ -440,7 +489,39 @@
         <h2 class="section-title"><i class="fa-solid fa-folder-open" style="color: #f59e0b;"></i> Ready-made Application Templates</h2>
         
         <div class="card-grid" id="cardGrid">
-            
+
+            <div class="card">
+                <div>
+                    <h3><i class="fa-solid fa-scale-unbalanced" style="color:#dc2626;"></i> Court / Notary Affidavit</h3>
+                    <p>Court Notary, Shapath Patra (Affidavit), Name Correction, ya Stamp paper Format.</p>
+                </div>
+                <button class="btn btn-view" onclick="showTemplate('court')">View Format</button>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3><i class="fa-solid fa-graduation-cap" style="color:#0284c7;"></i> College / School Application</h3>
+                    <p>Leave Application, Character Certificate, Fee Concession, ya TC Issue karne ka format.</p>
+                </div>
+                <button class="btn btn-view" onclick="showTemplate('college')">View Format</button>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3><i class="fa-solid fa-user-xmark" style="color:#eab308;"></i> Job Resignation Letter</h3>
+                    <p>Naukri chhodne, Resignation, Notice period serve karne ya Experience Letter ki application.</p>
+                </div>
+                <button class="btn btn-view" onclick="showTemplate('resignation')">View Format</button>
+            </div>
+
+            <div class="card">
+                <div>
+                    <h3><i class="fa-solid fa-mobile-retro" style="color:#10b981;"></i> PhonePe / UPI Fraud Complaint</h3>
+                    <p>PhonePe galat account me transfer, Money Failed/Deducted, ya UPI Fraud ki complaint.</p>
+                </div>
+                <button class="btn btn-view" onclick="showTemplate('phonepe')">View Format</button>
+            </div>
+
             <div class="card">
                 <div>
                     <h3><i class="fa-solid fa-shield-halved" style="color:#ef4444;"></i> Police FIR / Complaint</h3>
@@ -471,22 +552,6 @@
                     <p>Kisi bhi sarkari vibhag se jaankari maangne ke liye Soochna Ka Adhikar (RTI) format.</p>
                 </div>
                 <button class="btn btn-view" onclick="showTemplate('rti')">View Format</button>
-            </div>
-
-            <div class="card">
-                <div>
-                    <h3><i class="fa-solid fa-bolt" style="color:#f59e0b;"></i> Electricity Department</h3>
-                    <p>Naya meter lagwane ya meter bill thik karwane ke liye aavedan patra.</p>
-                </div>
-                <button class="btn btn-view" onclick="showTemplate('electricity')">View Format</button>
-            </div>
-
-            <div class="card">
-                <div>
-                    <h3><i class="fa-solid fa-users" style="color:#ec4899;"></i> Block / Panchayat Level</h3>
-                    <p>Jati, Aawasiya, Aay praman patra ya pension ke sambandh me aavedan.</p>
-                </div>
-                <button class="btn btn-view" onclick="showTemplate('block')">View Format</button>
             </div>
 
         </div>
@@ -584,11 +649,36 @@
             }
         }
 
+        function openFeedback() {
+            alert("Feedback: Aap apne sujhav Er. Meraj Ansari ko direct Help/Mail button dwara bhej sakte hain!");
+        }
+
+        function openHelp() {
+            // Aapki email id yahan update kar di gayi hai
+            const myEmail = "meraj274302@gmail.com"; 
+            const subject = encodeURIComponent("Help & Support Request - Legal Application Portal");
+            const body = encodeURIComponent("Hello Er. Meraj Ansari,\n\nMujhe Portal par yeh samasya/sahayata chahiye:\n\nName:\nContact Number:\nIssue Detail:");
+            
+            window.location.href = `mailto:${myEmail}?subject=${subject}&body=${body}`;
+        }
+
+        function openOrder() {
+            alert("Application Order: Special legal ya custom affidavit ke liye AI Custom Generator me apni poori detail likhein.");
+        }
+
         function showTemplate(type) {
             let text = "";
             const today = new Date().toLocaleDateString('hi-IN', { day: '2-digit', month: '2-digit', year: 'numeric' });
 
-            if (type === 'police') {
+            if (type === 'court') {
+                text = `समक्ष: श्रीमान कार्यपालक दंडाधिकारी / नोटरी पब्लिक महोदय,\n[कोर्ट / ज़िला का नाम]\n\nशपथ पत्र (AFFIDAVIT)\n\nमैं, [आपका नाम], पिता श्री [पिता का नाम], निवासी [पूरा पता], शपथपूर्वक निम्नलिखित कथन करता/करती हूँ:\n\n1. यह कि मैं भारत का/की स्थायी नागरिक हूँ।\n2. यह कि [यहाँ अपनी समस्या या नाम सुधार / शपथ का मुख्य कारण लिखें]।\n3. यह कि मेरे द्वारा दी गई उपर्युक्त सभी जानकारियाँ सत्य एवं सही हैं, इसमें कुछ भी छिपाया नहीं गया है।\n\nसत्यापन (Verification):\nशपथी के हस्ताक्षर: ______________\nस्थान: [स्थान]\nदिनांक: ${today}`;
+            } else if (type === 'college') {
+                text = `सेवा में,\nश्रीमान प्रधानाचार्य / प्राचार्य महोदय,\n[कॉलेज / स्कूल का नाम], [शहर]\n\nदिनांक: ${today}\n\nविषय: दो दिनों के अवकाश / टी.सी (TC) निर्गत करने हेतु आवेदन पत्र।\n\nमहोदय,\nसविनय निवेदन है कि मेरा नाम [आपका नाम] है। मैं आपके कॉलेज में [कक्षा / रोल नंबर] का छात्र/छात्रा हूँ।\n[यहाँ कारण लिखें: जैसे अस्वस्थ होने के कारण / उच्च शिक्षा हेतु TC प्राप्त करने हेतु] मैं उपस्थित होने में असमर्थ हूँ।\n\nअतः आपसे प्रार्थना है कि मुझे [कारण के अनुसार अनुमति / TC] प्रदान करने की कृपा करें।\n\nआज्ञाकारी छात्र/छात्रा,\nनाम: [आपका नाम]\nरोल नंबर: [Roll No]\nकक्षा: [Class]`;
+            } else if (type === 'resignation') {
+                text = `To,\nThe HR Manager / Department Head,\n[Company / Organization Name],\n[City, Location]\n\nDate: ${today}\n\nSubject: Resignation Letter from the position of [Your Designation].\n\nDear Sir/Madam,\n\nPlease accept this letter as formal notification that I am resigning from my position as [Your Designation] at [Company Name]. My last working day will be [Last Working Date].\n\nI am grateful for the opportunities I have had during my time with the company. I will ensure a smooth handover of my responsibilities during my notice period.\n\nThank you for your support.\n\nSincerely,\n[Your Name]\n[Employee ID]\n[Contact Number]`;
+            } else if (type === 'phonepe') {
+                text = `To,\nThe Nodal Officer / Fraud Grievance Cell,\nPhonePe / Bank Customer Support,\n\nDate: ${today}\n\nSubject: Complaint regarding Incorrect UPI Transaction / Money Transfer Fraud.\n\nRespected Sir/Madam,\n\nI am writing to report an urgent transaction issue on PhonePe / UPI.\n\nTransaction Details:\n- Date & Time: [Date & Time]\n- UTR / Transaction ID: [Transaction ID/UTR]\n- Amount: Rs. [Amount]\n- Receiver VPA/Account: [Wrong VPA / Account No]\n\nIssue Description:\n[Describe: Wrong transfer by mistake / Amount deducted but not credited].\n\nKindly initiate a reversal chargeback and resolve this issue at the earliest.\n\nYours faithfully,\nName: [Your Name]\nMobile No: [Registered Phone Number]\nUPI ID: [Your UPI ID]`;
+            } else if (type === 'police') {
                 text = `सेवा में,\nश्रीमान थाना अध्यक्ष महोदय,\n[थाना का नाम], [ज़िला]\n\nदिनांक: ${today}\n\nविषय: मोबाइल खो जाने / चोरी होने के संबंध में आवेदन पत्र।\n\nमहोदय,\nसविनय निवेदन है कि मेरा नाम [आपका नाम] है। मैं [आपका पता] का निवासी हूँ।\nदिनांक [तारीख] को मेरा मोबाइल फोन [स्थान का नाम] पर खो गया/चोरी हो गया है।\n\nमोबाइल विवरण:\n- कंपनी/मॉडल: [Model]\n- IMEI Number: [IMEI]\n- सिम नंबर: [Mobile No]\n\nअतः आपसे निवेदन है कि मेरी शिकायत दर्ज कर उचित कानूनी कार्रवाई करने की कृपा करें।\n\nभवदीय,\n[आपका नाम]\n[फ़ोन नंबर]\n[हस्ताक्षर]`;
             } else if (type === 'bank') {
                 text = `सेवा में,\nश्रीमान शाखा प्रबंधक (Branch Manager),\n[बैंक का नाम], [शाखा का नाम]\n\nदिनांक: ${today}\n\nविषय: नया एटीएम कार्ड जारी करने हेतु आवेदन पत्र।\n\nमहोदय,\nसविनय निवेदन है कि मेरा एक बचत खाता आपकी शाखा में है, जिसका खाता संख्या [Account Number] है।\nमेरा पुराना एटीएम कार्ड खो गया है, जिसके कारण मुझे लेन-देन में असुविधा हो रही है।\n\nअतः आपसे निवेदन है कि मेरे खाते पर नया एटीएम कार्ड जारी करने की कृपा करें।\n\nधन्यवाद।\n\nखाताधारक:\nनाम: [आपका नाम]\nखाता संख्या: [Account No]\nमो०: [Mobile No]\nहस्ताक्षर: __________`;
