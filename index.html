@@ -41,7 +41,6 @@
         /* CUSTOMIZED HEADER SECTION */
         header {
             position: relative;
-            /* Supreme Court + Legal Pillars Background with Dark Overlay */
             background: linear-gradient(180deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.72) 60%, rgba(15, 23, 42, 0.95) 100%),
                         url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
             color: white;
@@ -55,7 +54,6 @@
             overflow: hidden;
         }
 
-        /* Subtle Background Decorative Glow */
         header::before {
             content: "";
             position: absolute;
@@ -74,7 +72,6 @@
             z-index: 2;
         }
 
-        /* Indian Pride Badge */
         .indian-pride-tag {
             background: linear-gradient(90deg, rgba(255, 153, 51, 0.3), rgba(255, 255, 255, 0.2), rgba(19, 136, 8, 0.3));
             border: 1.5px solid rgba(245, 158, 11, 0.7);
@@ -93,22 +90,37 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
+        /* PHOTO ROTATION CONTAINER (BARI BARI SE REFLECT HONE WALI IMAGES) */
+        .profile-photo-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 0.8rem;
+        }
+
         .profile-photo {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 120px;
             height: 120px;
             border-radius: 50%;
             border: 4px solid #f59e0b;
             box-shadow: 0 0 25px rgba(245, 158, 11, 0.5), 0 8px 25px rgba(0, 0, 0, 0.5);
-            margin-bottom: 0.8rem;
             object-fit: cover;
+            animation: fadeInOut 6s infinite ease-in-out;
         }
 
-        .profile-photo:hover {
-            transform: scale(1.05);
-            border-color: #ffffff;
+        .profile-photo.photo-2 {
+            animation-delay: 3s;
         }
 
-        /* ORIGINAL PORTAL NAME - BOLD & STYLISH TYPOGRAPHY */
+        @keyframes fadeInOut {
+            0%, 45% { opacity: 1; transform: scale(1); }
+            50%, 95% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
         header h1 {
             margin: 0;
             font-family: 'Cinzel', 'Plus Jakarta Sans', serif;
@@ -167,7 +179,6 @@
             font-weight: 700;
         }
 
-        /* Layout Grid */
         .portal-layout {
             max-width: 1250px;
             margin: 1.8rem auto;
@@ -178,7 +189,6 @@
             align-items: start;
         }
 
-        /* Sidebar Panel */
         .sidebar-panel {
             background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(12px);
@@ -225,13 +235,14 @@
         }
 
         /* Button Colors */
+        .side-btn.btn-loveguru { background: linear-gradient(135deg, #ec4899, #be185d); }
         .side-btn.btn-chat { background: linear-gradient(135deg, #6366f1, #4f46e5); }
         .side-btn.btn-fir { background: linear-gradient(135deg, #ef4444, #b91c1c); }
         .side-btn.btn-court { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
         .side-btn.btn-dl { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
         .side-btn.btn-pdf-tool { background: linear-gradient(135deg, #10b981, #047857); }
         .side-btn.btn-resize { background: linear-gradient(135deg, #f59e0b, #d97706); }
-        .side-btn.btn-profile { background: linear-gradient(135deg, #ec4899, #be185d); }
+        .side-btn.btn-profile { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
         .side-btn.btn-share { background: linear-gradient(135deg, #06b6d4, #0891b2); }
         .side-btn.feedback { background: linear-gradient(135deg, #10b981, #059669); }
         .side-btn.help { background: linear-gradient(135deg, #f59e0b, #d97706); }
@@ -343,6 +354,97 @@
             align-items: center;
             gap: 8px;
             box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        /* LOVE GURU SECTION STYLING */
+        .loveguru-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(14px);
+            border-radius: 18px;
+            padding: 1.8rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 2px solid #ec4899;
+            margin-bottom: 2rem;
+        }
+
+        .loveguru-badge {
+            display: inline-block;
+            background: #fce7f3;
+            color: #be185d;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .lg-post-card {
+            background: #fdf2f8;
+            border-radius: 14px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #fbcfe8;
+        }
+
+        .lg-post-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            color: #be185d;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .lg-post-body {
+            font-size: 0.95rem;
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .lg-answers-section {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-top: 8px;
+            border-left: 3px solid #ec4899;
+        }
+
+        .lg-answer-item {
+            font-size: 0.88rem;
+            color: #334155;
+            padding: 6px 0;
+            border-bottom: 1px dashed #f472b6;
+        }
+
+        .lg-answer-item:last-child {
+            border-bottom: none;
+        }
+
+        .lg-reply-form {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .lg-reply-form input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #f472b6;
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .lg-reply-btn {
+            background: linear-gradient(135deg, #ec4899, #be185d);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.82rem;
         }
 
         .form-group { margin-bottom: 1.1rem; }
@@ -630,15 +732,19 @@
 </head>
 <body>
 
-    <!-- CUSTOMIZED HEADER WITH ORIGINAL NAME & BOLD STYLISH FONT -->
+    <!-- HEADER WITH 2 ROTATING/REFLECTING IMAGES & REMOVED COURT TEXT NAMES -->
     <header>
         <div class="indian-pride-tag">
-            <span>🇮🇳</span> WE ARE PROUD INDIANS | High Court & Supreme Court Legal Portal
+            <span>🇮🇳</span> WE ARE PROUD INDIANS | Official Legal Portal
         </div>
 
-        <img src="IMG_5326 (1).JPEG" alt="Er. Meraj Ansari" class="profile-photo" onerror="this.style.display='none'">
-        
-        <!-- SAME ORIGINAL NAME WITH ENHANCED BOLD STYLISH FONT -->
+        <!-- 2 IMAGES REFLECTING BARI BARI SE (FADE ANIMATION) -->
+        <div class="profile-photo-wrapper">
+            <img src="IMG_5326 (1).JPEG" alt="Er. Meraj Ansari Photo 1" class="profile-photo photo-1" onerror="this.src='https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=300'">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=300" alt="Legal Emblem Photo 2" class="profile-photo photo-2">
+        </div>
+
+        <!-- ORIGINAL TITLE (WITHOUT HIGH COURT & SUPREME COURT TEXT) -->
         <h1>Indian Legal & Official Application Portal</h1>
 
         <p><i class="fa-solid fa-wand-magic-sparkles" style="color:#f59e0b;"></i> Legal Formats & Smart AI Application Writer | Designed by <strong>Er. Meraj Ansari</strong> (Civil Engineer)</p>
@@ -658,6 +764,9 @@
 
         <!-- Left Navigation Sidebar -->
         <div class="sidebar-panel">
+            <div class="sidebar-title">Special Guidance</div>
+            <button class="side-btn btn-loveguru" onclick="scrollToLoveGuru()"><i class="fa-solid fa-heart-pulse"></i> Love Guru Advice</button>
+
             <div class="sidebar-title">Help & Services</div>
             <button class="side-btn btn-chat" onclick="scrollToChat()"><i class="fa-solid fa-comments"></i> Ask Help Desk</button>
             <button class="side-btn order" onclick="openOrder()"><i class="fa-solid fa-pen-nib"></i> App Order (₹5)</button>
@@ -682,6 +791,29 @@
             <!-- Search Bar -->
             <div class="search-box">
                 <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="🔍 Search (Police, Court, Bank, Resignation, PhonePe, College, RTI)...">
+            </div>
+
+            <!-- SECTION: LOVE GURU / COMMUNITY GUIDANCE BOARD -->
+            <div class="loveguru-container" id="loveGuruSection">
+                <div class="loveguru-badge"><i class="fa-solid fa-user-secret"></i> 100% Anonymous & Safe Community</div>
+                <h2 style="color: #be185d; margin-top: 0;"><i class="fa-solid fa-heart-circle-check"></i> Love Guru & Life Advice Board</h2>
+                <p style="font-size: 0.88rem; color: #475569;">
+                    Life me koi tension ho, job chali gayi ho, career samjh na aa raha ho ya relationship issue ho? **Bina apni identity bataye (Gupt)** apna sawal puchhein! Koi bhi anubhavi vyakti aapko acchi advice de sakta hai.
+                </p>
+
+                <div class="form-group">
+                    <textarea id="lgQuestionInput" rows="3" placeholder="Apna sawal bina naam bataye likhein (e.g. Meri job chut gayi hai aur samjh nahi aa raha ab aage business karu ya job search karu, tension ho rahi hai)..."></textarea>
+                </div>
+                <button class="btn-submit" style="background: linear-gradient(135deg, #ec4899, #be185d);" onclick="postLoveGuruQuestion()">
+                    <i class="fa-solid fa-paper-plane"></i> Post Anonymous Question
+                </button>
+
+                <hr style="margin: 1.5rem 0; border-top: 1px dashed #f472b6;">
+
+                <h3 style="color:#881337; font-size:1.1rem;"><i class="fa-solid fa-clock-rotate-left"></i> Today's Community Questions & Advice:</h3>
+                <div id="lgQuestionsList">
+                    <!-- Dynamic Anonymous Q&A load here -->
+                </div>
             </div>
 
             <!-- Section 1: Custom Application Writing Service (Paid ₹5) -->
@@ -964,7 +1096,6 @@
     </footer>
 
     <script>
-        // Load Profile & Chat Data on Startup
         window.onload = function() {
             const savedName = localStorage.getItem('user_name');
             const savedPhone = localStorage.getItem('user_phone');
@@ -978,15 +1109,142 @@
             }
 
             renderChatMessages();
+            renderLoveGuruPosts();
         };
 
         function openModal(id) { document.getElementById(id).style.display = 'flex'; }
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        
         function scrollToChat() {
             window.scrollTo({ top: document.getElementById('helpDeskSection').offsetTop - 20, behavior: 'smooth' });
         }
 
-        /* Help Desk Forum Script */
+        function scrollToLoveGuru() {
+            window.scrollTo({ top: document.getElementById('loveGuruSection').offsetTop - 20, behavior: 'smooth' });
+        }
+
+        /* ----------------------------------------------------
+           LOVE GURU / ANONYMOUS ADVICE BOARD LOGIC & FILTER
+        ------------------------------------------------------- */
+
+        const sensitiveWordsList = ['suicide', 'marna', 'fansi', 'gaali', 'sex', 'kill', 'abuse', 'cheat', 'bitch', 'hate'];
+
+        function containsSensitiveWords(text) {
+            const lowerText = text.toLowerCase();
+            return sensitiveWordsList.some(word => lowerText.includes(word));
+        }
+
+        function postLoveGuruQuestion() {
+            const qText = document.getElementById('lgQuestionInput').value.trim();
+
+            if(!qText) {
+                alert("Kripya apna sawal/problem type karein!");
+                return;
+            }
+
+            if(containsSensitiveWords(qText)) {
+                alert("Aapke sawal me harmful ya sensitive words paaye gaye hain. Kripya shisht bhasha me advice maangein.");
+                return;
+            }
+
+            const lgPosts = JSON.parse(localStorage.getItem('portal_loveguru_posts') || '[]');
+            const randomUserNum = Math.floor(1000 + Math.random() * 9000);
+
+            const newPost = {
+                id: Date.now(),
+                anonUser: `Anonymous User #${randomUserNum}`,
+                question: qText,
+                date: new Date().toLocaleDateString(),
+                time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                answers: []
+            };
+
+            lgPosts.unshift(newPost);
+            localStorage.setItem('portal_loveguru_posts', JSON.stringify(lgPosts));
+            document.getElementById('lgQuestionInput').value = '';
+            renderLoveGuruPosts();
+            alert("Aapka sawal Anonymous (Bina identity) ke post kar diya gaya hai!");
+        }
+
+        function postLoveGuruAnswer(postId) {
+            const replyInput = document.getElementById(`lg-reply-input-${postId}`);
+            const replyText = replyInput.value.trim();
+
+            if(!replyText) {
+                alert("Kripya apni advice type karein!");
+                return;
+            }
+
+            if(containsSensitiveWords(replyText)) {
+                alert("Kripya koi sensitive ya abusive shabd use na karein.");
+                return;
+            }
+
+            let lgPosts = JSON.parse(localStorage.getItem('portal_loveguru_posts') || '[]');
+            const randomAdvisorNum = Math.floor(1000 + Math.random() * 9000);
+
+            lgPosts = lgPosts.map(post => {
+                if(post.id === postId) {
+                    post.answers.push({
+                        advisor: `Helper #${randomAdvisorNum}`,
+                        text: replyText,
+                        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                    });
+                }
+                return post;
+            });
+
+            localStorage.setItem('portal_loveguru_posts', JSON.stringify(lgPosts));
+            renderLoveGuruPosts();
+        }
+
+        function renderLoveGuruPosts() {
+            const container = document.getElementById('lgQuestionsList');
+            const lgPosts = JSON.parse(localStorage.getItem('portal_loveguru_posts') || '[]');
+
+            if(lgPosts.length === 0) {
+                container.innerHTML = `<p style="color:#64748b; font-size:0.88rem;">Aaj abhi tak kisi ne sawal nahi puchha hai. Aap pehla anonymous question poochh sakte hain!</p>`;
+                return;
+            }
+
+            let html = '';
+            lgPosts.forEach(post => {
+                let answersHtml = '';
+                if(post.answers && post.answers.length > 0) {
+                    answersHtml = `<div class="lg-answers-section">
+                        <strong style="font-size:0.8rem; color:#be185d;"><i class="fa-solid fa-comments"></i> Community Advice (${post.answers.length}):</strong>`;
+                    post.answers.forEach(ans => {
+                        answersHtml += `
+                        <div class="lg-answer-item">
+                            <strong><i class="fa-solid fa-user-shield" style="color:#ec4899;"></i> ${ans.advisor}:</strong> ${ans.text}
+                        </div>`;
+                    });
+                    answersHtml += `</div>`;
+                }
+
+                html += `
+                <div class="lg-post-card">
+                    <div class="lg-post-header">
+                        <span><i class="fa-solid fa-user-secret"></i> ${post.anonUser}</span>
+                        <span>${post.date} ${post.time}</span>
+                    </div>
+                    <div class="lg-post-body">"${post.question}"</div>
+                    
+                    ${answersHtml}
+
+                    <div class="lg-reply-form">
+                        <input type="text" id="lg-reply-input-${post.id}" placeholder="Apne anubhav ke hisab se advice dein...">
+                        <button class="lg-reply-btn" onclick="postLoveGuruAnswer(${post.id})"><i class="fa-solid fa-heart"></i> Reply</button>
+                    </div>
+                </div>`;
+            });
+
+            container.innerHTML = html;
+        }
+
+        /* ----------------------------------------------------
+           HELP DESK & PUBLIC FORUM FUNCTIONS
+        ------------------------------------------------------- */
         function postUserQuery() {
             const queryText = document.getElementById('chatInput').value.trim();
             const userName = localStorage.getItem('user_name') || 'Guest User';
