@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian Legal & Official Application Formats | Er. Meraj Ansari</title>
+    <title>Indian Legal & Official Application Portal | Er. Meraj Ansari</title>
     <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -62,10 +62,6 @@
             object-fit: cover;
         }
 
-        .profile-photo:hover {
-            transform: scale(1.05) rotate(2deg);
-        }
-
         header h1 {
             margin: 0;
             font-size: 2.2rem;
@@ -96,6 +92,17 @@
             gap: 8px;
         }
 
+        .user-welcome-badge {
+            margin-top: 12px;
+            background: rgba(16, 185, 129, 0.25);
+            border: 1px solid #10b981;
+            color: #ecfdf5;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
         .container {
             max-width: 1050px;
             margin: 2rem auto;
@@ -104,11 +111,11 @@
             z-index: 10;
         }
 
-        /* Floating Sidebar Quick Action Buttons */
-        .sidebar-actions {
+        /* Floating Right Sidebar */
+        .sidebar-actions-right {
             position: fixed;
             right: 15px;
-            top: 40%;
+            top: 45%;
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
@@ -116,14 +123,26 @@
             z-index: 1000;
         }
 
+        /* Floating Left Sidebar */
+        .sidebar-actions-left {
+            position: fixed;
+            left: 15px;
+            top: 45%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
         .side-btn {
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(15, 23, 42, 0.88);
             backdrop-filter: blur(10px);
             color: white;
             border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 12px 16px;
+            padding: 10px 14px;
             border-radius: 30px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -134,11 +153,18 @@
             white-space: nowrap;
         }
 
-        .side-btn:hover {
-            background: #2563eb;
-            transform: translateX(-5px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
-        }
+        .sidebar-actions-left .side-btn:hover { transform: translateX(5px); }
+        .sidebar-actions-right .side-btn:hover { transform: translateX(-5px); }
+
+        /* Colourful Buttons */
+        .side-btn.btn-fir { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+        .side-btn.btn-court { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+        .side-btn.btn-dl { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .side-btn.btn-pdf-tool { background: linear-gradient(135deg, #10b981, #047857); }
+        .side-btn.btn-resize { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .side-btn.btn-profile { background: linear-gradient(135deg, #ec4899, #be185d); }
+        .side-btn.btn-share { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+        .side-btn.btn-chat { background: linear-gradient(135deg, #6366f1, #4f46e5); }
 
         .side-btn.feedback { background: linear-gradient(135deg, #10b981, #059669); }
         .side-btn.help { background: linear-gradient(135deg, #f59e0b, #d97706); }
@@ -167,7 +193,6 @@
             background: transparent;
         }
 
-        /* Form Glassmorphism Card */
         .form-card {
             background: var(--card-bg);
             backdrop-filter: blur(14px);
@@ -189,7 +214,6 @@
             gap: 10px;
         }
 
-        /* Premium Service Card */
         .paid-card {
             background: linear-gradient(135deg, #ffffff 0%, #fef3c7 100%);
             border: 2px solid #f59e0b;
@@ -218,10 +242,30 @@
             font-size: 0.98rem;
         }
 
+        .pay-btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .btn-pay {
+            background: linear-gradient(135deg, #5f259f, #391463);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 20px rgba(95, 37, 159, 0.3);
+        }
+
         .btn-whatsapp {
             background: linear-gradient(135deg, #25d366, #128c7e);
             color: white;
-            padding: 12px 24px;
+            padding: 12px 20px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
@@ -229,11 +273,6 @@
             align-items: center;
             gap: 8px;
             box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-        }
-
-        .btn-whatsapp:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6);
         }
 
         .form-group {
@@ -258,18 +297,7 @@
             background: rgba(255, 255, 255, 0.95);
         }
 
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: #ffffff;
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
-        }
-
-        .row {
-            display: flex;
-            gap: 16px;
-        }
-
+        .row { display: flex; gap: 16px; }
         .row .form-group { flex: 1; }
 
         .btn-submit {
@@ -285,11 +313,6 @@
             box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
         }
 
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(37, 99, 235, 0.6);
-        }
-
         .loading {
             display: none;
             text-align: center;
@@ -300,7 +323,6 @@
             backdrop-filter: blur(10px);
             border-radius: 14px;
             margin-bottom: 1.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
         .output-card {
@@ -327,10 +349,7 @@
             line-height: 1.8;
         }
 
-        .action-btns {
-            display: flex;
-            gap: 12px;
-        }
+        .action-btns { display: flex; gap: 12px; }
 
         .btn {
             display: inline-flex;
@@ -347,20 +366,8 @@
             cursor: pointer;
         }
 
-        .btn:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-
-        .btn-pdf {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-        }
-
-        .btn-copy {
-            background: linear-gradient(135deg, #10b981, #059669);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-        }
+        .btn-pdf { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        .btn-copy { background: linear-gradient(135deg, #10b981, #059669); }
 
         .section-title {
             color: #ffffff;
@@ -393,40 +400,134 @@
             justify-content: space-between;
         }
 
-        .card:hover {
-            transform: translateY(-6px);
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        /* Helpdesk & Chat Forum Styles */
+        .chat-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(14px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            border: 2px solid #6366f1;
+            margin-bottom: 2.5rem;
         }
 
-        .card h3 {
-            margin-top: 0.3rem;
-            color: #1e293b;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .card p {
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            margin-bottom: 1.2rem;
-        }
-
-        .card .btn-view {
+        .chat-msg-box {
             background: #f1f5f9;
-            color: #1e293b;
-            border: 1px solid #cbd5e1;
-            width: 100%;
-            justify-content: center;
-            padding: 8px;
-            border-radius: 8px;
+            border-radius: 14px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid #6366f1;
+            position: relative;
         }
 
-        .card .btn-view:hover {
-            background: var(--primary-dark);
-            color: white;
-            border-color: var(--primary-dark);
+        .chat-user-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 6px;
         }
+
+        .chat-text {
+            font-size: 1rem;
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .admin-reply-box {
+            background: #e0e7ff;
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-top: 8px;
+            border-left: 4px solid #4338ca;
+            font-size: 0.92rem;
+        }
+
+        .reply-input-group {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .reply-input-group input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.88rem;
+        }
+
+        .reply-btn {
+            background: #4f46e5;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        /* Modal CSS */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-card {
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .share-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 1.2rem;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 12px;
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .share-btn.wa { background: #25d366; }
+        .share-btn.fb { background: #1877f2; }
+        .share-btn.tg { background: #0088cc; }
+        .share-btn.tw { background: #000000; }
+        .share-btn.copy { background: #64748b; cursor: pointer; border: none; }
 
         footer {
             text-align: center;
@@ -435,19 +536,14 @@
             backdrop-filter: blur(10px);
             color: #cbd5e1;
             margin-top: 4rem;
-            font-size: 0.95rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        footer strong {
-            color: #ffffff;
-        }
-
-        @media (max-width: 768px) {
-            .sidebar-actions {
+        @media (max-width: 900px) {
+            .sidebar-actions-left, .sidebar-actions-right {
                 position: static;
                 transform: none;
                 flex-direction: row;
+                flex-wrap: wrap;
                 justify-content: center;
                 margin-bottom: 1rem;
             }
@@ -455,13 +551,26 @@
             .row { flex-direction: column; gap: 0; }
             header h1 { font-size: 1.6rem; }
             .form-card, .paid-card { padding: 1.2rem; }
+            .share-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Floating Sidebar Quick Buttons -->
-    <div class="sidebar-actions">
+    <!-- Floating Left Sidebar Navigation Buttons -->
+    <div class="sidebar-actions-left">
+        <button class="side-btn btn-chat" onclick="scrollToChat()"><i class="fa-solid fa-comments"></i> Help Desk / Ask Question</button>
+        <button class="side-btn btn-fir" onclick="openFirSuggestion()"><i class="fa-solid fa-shield-halved"></i> FIR Suggestion</button>
+        <button class="side-btn btn-court" onclick="openCourtSuggestion()"><i class="fa-solid fa-gavel"></i> Court Suggestion</button>
+        <button class="side-btn btn-dl" onclick="openDlSuggestion()"><i class="fa-solid fa-id-card"></i> DL Suggestion</button>
+        <button class="side-btn btn-pdf-tool" onclick="openImgToPdfModal()"><i class="fa-solid fa-file-pdf"></i> Image to PDF</button>
+        <button class="side-btn btn-resize" onclick="openResizerModal()"><i class="fa-solid fa-crop-simple"></i> Image Resizer</button>
+        <button class="side-btn btn-profile" onclick="openProfileModal()"><i class="fa-solid fa-circle-user"></i> My Profile / Login</button>
+        <button class="side-btn btn-share" onclick="openShareModal()"><i class="fa-solid fa-share-nodes"></i> Share Website</button>
+    </div>
+
+    <!-- Floating Right Sidebar Action Buttons -->
+    <div class="sidebar-actions-right">
         <button class="side-btn feedback" onclick="openFeedback()"><i class="fa-solid fa-comment-dots"></i> Feedback</button>
         <button class="side-btn help" onclick="openHelp()"><i class="fa-solid fa-envelope"></i> Help / Mail Us</button>
         <button class="side-btn order" onclick="openOrder()"><i class="fa-solid fa-pen-nib"></i> App Order</button>
@@ -472,10 +581,12 @@
         <h1>Legal & Official Application Portal</h1>
         <p><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Formats & AI Writer | Created by <strong>Er. Meraj Ansari</strong> (Civil Engineer)</p>
         
-        <!-- Visitor Counter -->
         <div class="visitor-count">
             <i class="fa-solid fa-users" style="color: #60a5fa;"></i> Total Visits: 
             <img src="https://profile-counter.glitch.me/meraj274302-legal-portal/count.svg" alt="Visitors" style="height: 20px; vertical-align: middle;">
+        </div>
+        <div id="userBadge" class="user-welcome-badge">
+            <i class="fa-solid fa-user-check"></i> Status: Guest Mode (Without Profile)
         </div>
     </header>
 
@@ -489,27 +600,48 @@
         <!-- Section 1: Custom Application Writing Service (Paid ₹5) -->
         <div class="paid-card" id="paidServiceSection">
             <h2><i class="fa-solid fa-pen-fancy"></i> Custom Legal Application Writing Service</h2>
-            <p style="color: #475569; margin-bottom: 0.5rem;">Kya aapko bilkul accurate, legal ya complex application likhwani hai? Hamare expert dwara 10 minutes me application taiyar karwayein.</p>
+            <p style="color: #475569; margin-bottom: 0.5rem;">Kya aapko bilkul accurate, legal ya complex application likhwani hai? Expert dwara 10 minutes me application taiyar karwayein.</p>
             
             <div class="payment-box">
-                <p style="margin: 0 0 8px 0; font-weight: 700; color: #1e293b;">
-                    <i class="fa-solid fa-indian-rupee-sign" style="color: #10b981;"></i> Charge: Sirf ₹5 / Application
+                <p style="margin: 0 0 6px 0; font-weight: 700; color: #1e293b;">
+                    <i class="fa-solid fa-indian-rupee-sign" style="color: #10b981;"></i> Service Charge: Sirf ₹5 / Application
                 </p>
-                <p style="margin: 0; color: #334155;">
-                    <strong>PhonePe / GPay Number:</strong> <span style="background: #fef08a; padding: 2px 8px; border-radius: 6px; font-weight: 700;">9923343901</span>
+                <p style="margin: 0; color: #475569; font-size: 0.9rem;">
+                    Niche <strong>Pay ₹5 via PhonePe / UPI</strong> button par click karke direct payment karein. PhonePe app automatically open ho jayega.
                 </p>
+
+                <div class="pay-btn-group">
+                    <a href="upi://pay?pa=9923343901@ybl&pn=Er%20Meraj%20Ansari&am=5&cu=INR&tn=Legal%20Application%20Writing%20Fee" class="btn-pay">
+                        <i class="fa-solid fa-wallet"></i> Pay ₹5 via PhonePe / UPI
+                    </a>
+                    <a href="https://wa.me/919923343901?text=Hello%20Er.%20Meraj%20Ansari,%20Maine%20%E2%82%B95%20ka%20Payment%20kar%20diya%20hai.%20Mujhe%20custom%20application%20banwani%20hai." target="_blank" class="btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp fa-lg"></i> Send Screenshot on WhatsApp
+                    </a>
+                </div>
             </div>
-
-            <p style="font-size: 0.9rem; color: #475569;">
-                <strong>Process:</strong> ₹5 ka PhonePe karein aur payment screenshot ke saath apni detail niche button par click karke WhatsApp karein.
-            </p>
-
-            <a href="https://wa.me/919923343901?text=Hello%20Er.%20Meraj%20Ansari,%20Maine%20%E2%82%B95%20ka%20PhonePe%20kar%20diya%20hai.%20Mujhe%20custom%20application%20banwani%20hai." target="_blank" class="btn-whatsapp">
-                <i class="fa-brands fa-whatsapp fa-lg"></i> Direct WhatsApp Par Order Karein (₹5)
-            </a>
         </div>
 
-        <!-- Section 2: AI Custom Generator -->
+        <!-- Section 2: Public Help Desk / Query & Reply Forum -->
+        <div class="chat-container" id="helpDeskSection">
+            <h2 style="color:#4f46e5; margin-top:0;"><i class="fa-solid fa-comments"></i> Public Help Desk & Query Board</h2>
+            <p style="font-size:0.9rem; color:#475569;">Apni samasya ya sawal likhe aur submit karein. Er. Meraj Ansari dwara iska jawab yahin par diya jayega.</p>
+            
+            <div class="form-group">
+                <textarea id="chatInput" rows="3" placeholder="Apni samasya ya sawal detail me likhein (e.g. Sir, Zameen napai ke liye CO ko application kaise likhein?)..."></textarea>
+            </div>
+            <button class="btn-submit" style="background: linear-gradient(135deg, #6366f1, #4f46e5);" onclick="postUserQuery()">
+                <i class="fa-solid fa-paper-plane"></i> Submit Samasya / Question
+            </button>
+
+            <hr style="margin: 1.8rem 0; border-top: 1px solid #cbd5e1;">
+
+            <h3 style="color:#1e293b;"><i class="fa-solid fa-list-check"></i> Recent Questions & Answers (Help Desk):</h3>
+            <div id="chatMessagesList">
+                <!-- Messages will appear here -->
+            </div>
+        </div>
+
+        <!-- Section 3: AI Custom Generator -->
         <div class="form-card">
             <h2><i class="fa-solid fa-robot" style="color: #2563eb;"></i> AI Custom Application Generator</h2>
             <p style="font-size:0.9rem; color:#475569; margin-top:-5px;">Apni Google Gemini API Key paste karein aur 1-click me kisi bhi vishay par smart application generate karein.</p>
@@ -572,7 +704,7 @@
             </div>
         </div>
 
-        <!-- Section 3: Standard Application Formats (Readymade Cards) -->
+        <!-- Section 4: Standard Application Formats (Readymade Cards) -->
         <h2 class="section-title"><i class="fa-solid fa-folder-open" style="color: #f59e0b;"></i> Ready-made Application Templates</h2>
         
         <div class="card-grid" id="cardGrid">
@@ -645,19 +777,363 @@
 
     </div>
 
+    <!-- MODAL POPUPS FOR LEFT TOOLS -->
+
+    <!-- Share Website Modal -->
+    <div class="modal-overlay" id="shareModal">
+        <div class="modal-card">
+            <span class="close-modal" onclick="closeModal('shareModal')">&times;</span>
+            <h3><i class="fa-solid fa-share-nodes" style="color: #06b6d4;"></i> Share Portal With Friends</h3>
+            <p style="font-size: 0.9rem; color: #475569;">Is useful legal & official portal ko apne dosto aur groups me share karein taaki sabhi log iska labh le sakein!</p>
+            
+            <div class="share-grid">
+                <a id="shareWa" target="_blank" class="share-btn wa"><i class="fa-brands fa-whatsapp fa-lg"></i> WhatsApp</a>
+                <a id="shareFb" target="_blank" class="share-btn fb"><i class="fa-brands fa-facebook fa-lg"></i> Facebook</a>
+                <a id="shareTg" target="_blank" class="share-btn tg"><i class="fa-brands fa-telegram fa-lg"></i> Telegram</a>
+                <a id="shareTw" target="_blank" class="share-btn tw"><i class="fa-brands fa-x-twitter fa-lg"></i> X (Twitter)</a>
+            </div>
+
+            <button class="share-btn copy" style="width: 100%; margin-top: 12px;" onclick="copyWebsiteUrl()">
+                <i class="fa-solid fa-link"></i> Copy Website Link
+            </button>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal-card">
+            <span class="close-modal" onclick="closeModal('profileModal')">&times;</span>
+            <h3><i class="fa-solid fa-user-gear" style="color: #ec4899;"></i> User Profile & Settings</h3>
+            <p style="font-size: 0.9rem; color: #475569;">Aap chahein toh apni details save karke profile bana sakte hain, ya bina profile ke bhi website completely free use kar sakte hain!</p>
+            <hr>
+            <div class="form-group">
+                <label>Aapka Full Name:</label>
+                <input type="text" id="profName" placeholder="Ex: Meraj Ansari">
+            </div>
+            <div class="form-group">
+                <label>Mobile Number:</label>
+                <input type="text" id="profPhone" placeholder="Ex: 9876543210">
+            </div>
+            <div class="form-group">
+                <label>Address:</label>
+                <input type="text" id="profAddr" placeholder="Ex: Zila, Bihar">
+            </div>
+            <div style="display:flex; gap:10px;">
+                <button class="btn-submit" onclick="saveUserProfile()"><i class="fa-solid fa-floppy-disk"></i> Save Profile</button>
+                <button class="btn" style="background:#64748b;" onclick="clearUserProfile()"><i class="fa-solid fa-trash"></i> Clear Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image to PDF Modal -->
+    <div class="modal-overlay" id="imgToPdfModal">
+        <div class="modal-card">
+            <span class="close-modal" onclick="closeModal('imgToPdfModal')">&times;</span>
+            <h3><i class="fa-solid fa-file-pdf" style="color: #10b981;"></i> Image To PDF Converter</h3>
+            <p style="font-size: 0.9rem; color: #475569;">Apni kisi bhi Photo/Document image ko select karein aur instantly PDF me convert karein.</p>
+            <div class="form-group">
+                <input type="file" id="imgPdfInput" accept="image/*" multiple style="padding: 10px;">
+            </div>
+            <button class="btn-submit" onclick="convertImagesToPdf()"><i class="fa-solid fa-download"></i> Download PDF</button>
+        </div>
+    </div>
+
+    <!-- Image Resizer Modal -->
+    <div class="modal-overlay" id="resizerModal">
+        <div class="modal-card">
+            <span class="close-modal" onclick="closeModal('resizerModal')">&times;</span>
+            <h3><i class="fa-solid fa-crop-simple" style="color: #f59e0b;"></i> Image Resizer Tool</h3>
+            <p style="font-size: 0.9rem; color: #475569;">Document ya photo size (Width & Height) badalne ke liye image upload karein.</p>
+            <div class="form-group">
+                <input type="file" id="resizeImgInput" accept="image/*" onchange="previewResizeImage(event)">
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label>Width (px):</label>
+                    <input type="number" id="imgWidth" placeholder="300">
+                </div>
+                <div class="form-group">
+                    <label>Height (px):</label>
+                    <input type="number" id="imgHeight" placeholder="400">
+                </div>
+            </div>
+            <canvas id="resizeCanvas" style="display:none; max-width:100%; border:1px dashed #ccc; border-radius:10px; margin-bottom:10px;"></canvas>
+            <button class="btn-submit" onclick="processResizeAndDownload()"><i class="fa-solid fa-download"></i> Resize & Download Image</button>
+        </div>
+    </div>
+
+    <!-- Suggestions Modal (Common) -->
+    <div class="modal-overlay" id="suggestionModal">
+        <div class="modal-card">
+            <span class="close-modal" onclick="closeModal('suggestionModal')">&times;</span>
+            <h3 id="suggTitle"><i class="fa-solid fa-lightbulb"></i> Expert Legal Suggestion</h3>
+            <div id="suggContent" style="font-size:0.95rem; color:#334155; line-height:1.7;"></div>
+        </div>
+    </div>
+
     <footer>
         <p>© 2026 AI Legal Application Portal | Developed & Maintained by <strong>Er. Meraj Ansari</strong></p>
     </footer>
 
     <script>
-        async function generateApplicationWithAI() {
-            const userApiKey = document.getElementById('userApiKey').value.trim();
+        // Load Profile & Chat Data on Startup
+        window.onload = function() {
+            const savedName = localStorage.getItem('user_name');
+            const savedPhone = localStorage.getItem('user_phone');
+            const savedAddr = localStorage.getItem('user_addr');
 
-            if (!userApiKey) {
-                alert('Kripya sabse pehle apni Google Gemini API Key (e.g. AIzaSy...) box me paste karein!');
+            if(savedName) {
+                document.getElementById('userName').value = savedName;
+                document.getElementById('userPhone').value = savedPhone || '';
+                document.getElementById('userAddress').value = savedAddr || '';
+                document.getElementById('userBadge').innerHTML = `<i class="fa-solid fa-circle-check"></i> Logged In: <strong>${savedName}</strong>`;
+            }
+
+            renderChatMessages();
+        };
+
+        function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+        function scrollToChat() {
+            window.scrollTo({ top: document.getElementById('helpDeskSection').offsetTop - 20, behavior: 'smooth' });
+        }
+
+        /* Help Desk Forum Script */
+        function postUserQuery() {
+            const queryText = document.getElementById('chatInput').value.trim();
+            const userName = localStorage.getItem('user_name') || 'Guest User';
+            
+            if(!queryText) {
+                alert("Kripya apni samasya ya question likhein!");
                 return;
             }
 
+            const messages = JSON.parse(localStorage.getItem('portal_chat_messages') || '[]');
+            const newMsg = {
+                id: Date.now(),
+                user: userName,
+                text: queryText,
+                time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                date: new Date().toLocaleDateString(),
+                reply: ""
+            };
+
+            messages.unshift(newMsg);
+            localStorage.setItem('portal_chat_messages', JSON.stringify(messages));
+            document.getElementById('chatInput').value = '';
+            renderChatMessages();
+            alert("Aapki samasya kamyabi se submit ho gayi hai! Admin Er. Meraj Ansari jald hi reply karenge.");
+        }
+
+        function postAdminReply(msgId) {
+            const replyInput = document.getElementById(`reply-input-${msgId}`);
+            const replyText = replyInput.value.trim();
+
+            if(!replyText) {
+                alert("Kripya reply type karein!");
+                return;
+            }
+
+            let messages = JSON.parse(localStorage.getItem('portal_chat_messages') || '[]');
+            messages = messages.map(msg => {
+                if(msg.id === msgId) {
+                    msg.reply = replyText;
+                }
+                return msg;
+            });
+
+            localStorage.setItem('portal_chat_messages', JSON.stringify(messages));
+            renderChatMessages();
+        }
+
+        function deleteQueryMsg(msgId) {
+            if(confirm("Kya aap is message ko delete karna chahte hain?")) {
+                let messages = JSON.parse(localStorage.getItem('portal_chat_messages') || '[]');
+                messages = messages.filter(msg => msg.id !== msgId);
+                localStorage.setItem('portal_chat_messages', JSON.stringify(messages));
+                renderChatMessages();
+            }
+        }
+
+        function renderChatMessages() {
+            const messagesList = document.getElementById('chatMessagesList');
+            const messages = JSON.parse(localStorage.getItem('portal_chat_messages') || '[]');
+
+            if(messages.length === 0) {
+                messagesList.innerHTML = `<p style="color:#64748b; font-size:0.9rem;">Abhi tak koi samasya submit nahi hui hai.</p>`;
+                return;
+            }
+
+            let html = '';
+            messages.forEach(msg => {
+                html += `
+                <div class="chat-msg-box">
+                    <div class="chat-user-header">
+                        <span><i class="fa-solid fa-circle-user" style="color:#6366f1;"></i> <strong>${msg.user}</strong> (${msg.date} ${msg.time})</span>
+                        <button onclick="deleteQueryMsg(${msg.id})" style="background:none; border:none; color:#ef4444; cursor:pointer;" title="Delete"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                    <div class="chat-text">${msg.text}</div>
+                    
+                    ${msg.reply ? `
+                        <div class="admin-reply-box">
+                            <strong style="color:#3730a3;"><i class="fa-solid fa-user-shield"></i> Er. Meraj Ansari (Admin):</strong>
+                            <p style="margin:4px 0 0 0; color:#1e1b4b;">${msg.reply}</p>
+                        </div>
+                    ` : `
+                        <div class="reply-input-group">
+                            <input type="text" id="reply-input-${msg.id}" placeholder="Admin Reply: Apna jawab yahin type karein...">
+                            <button class="reply-btn" onclick="postAdminReply(${msg.id})"><i class="fa-solid fa-reply"></i> Reply</button>
+                        </div>
+                    `}
+                </div>`;
+            });
+
+            messagesList.innerHTML = html;
+        }
+
+        /* Social Share Functions */
+        function openShareModal() {
+            const pageUrl = window.location.href;
+            const shareText = encodeURIComponent("Check out this Legal & Official Application Portal by Er. Meraj Ansari! Create applications & FIR, Court, DL formats easily: ");
+
+            document.getElementById('shareWa').href = `https://api.whatsapp.com/send?text=${shareText}${encodeURIComponent(pageUrl)}`;
+            document.getElementById('shareFb').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`;
+            document.getElementById('shareTg').href = `https://t.me/share/url?url=${encodeURIComponent(pageUrl)}&text=${shareText}`;
+            document.getElementById('shareTw').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${shareText}`;
+
+            openModal('shareModal');
+        }
+
+        function copyWebsiteUrl() {
+            navigator.clipboard.writeText(window.location.href).then(() => { alert("Website link copied!"); });
+        }
+
+        /* Profile Functions */
+        function openProfileModal() {
+            document.getElementById('profName').value = localStorage.getItem('user_name') || '';
+            document.getElementById('profPhone').value = localStorage.getItem('user_phone') || '';
+            document.getElementById('profAddr').value = localStorage.getItem('user_addr') || '';
+            openModal('profileModal');
+        }
+
+        function saveUserProfile() {
+            const name = document.getElementById('profName').value.trim();
+            const phone = document.getElementById('profPhone').value.trim();
+            const addr = document.getElementById('profAddr').value.trim();
+
+            if(!name) { alert("Kripya apna naam bharein!"); return; }
+
+            localStorage.setItem('user_name', name);
+            localStorage.setItem('user_phone', phone);
+            localStorage.setItem('user_addr', addr);
+
+            document.getElementById('userName').value = name;
+            document.getElementById('userPhone').value = phone;
+            document.getElementById('userAddress').value = addr;
+
+            document.getElementById('userBadge').innerHTML = `<i class="fa-solid fa-circle-check"></i> Logged In: <strong>${name}</strong>`;
+            alert("Profile save ho gayi!");
+            closeModal('profileModal');
+        }
+
+        function clearUserProfile() {
+            localStorage.clear();
+            document.getElementById('userName').value = '';
+            document.getElementById('userPhone').value = '';
+            document.getElementById('userAddress').value = '';
+            document.getElementById('userBadge').innerHTML = `<i class="fa-solid fa-user-check"></i> Status: Guest Mode (Without Profile)`;
+            alert("Profile clear kar di gayi hai.");
+            closeModal('profileModal');
+        }
+
+        /* Suggestions Popups */
+        function openFirSuggestion() {
+            document.getElementById('suggTitle').innerHTML = `<i class="fa-solid fa-shield-halved" style="color:#ef4444;"></i> Police FIR Suggestions`;
+            document.getElementById('suggContent').innerHTML = `
+                <ul style="padding-left: 20px;">
+                    <li><strong>1. Zero FIR:</strong> Kisi bhi police station me Zero FIR darj kara sakte hain.</li>
+                    <li><strong>2. Free Copy:</strong> FIR ki copy bilkul free hoti hai (Section 154 CrPC).</li>
+                </ul>`;
+            openModal('suggestionModal');
+        }
+
+        function openCourtSuggestion() {
+            document.getElementById('suggTitle').innerHTML = `<i class="fa-solid fa-gavel" style="color:#8b5cf6;"></i> Court & Affidavit Suggestions`;
+            document.getElementById('suggContent').innerHTML = `
+                <ul style="padding-left: 20px;">
+                    <li><strong>1. Stamp Paper:</strong> Non-Judicial Stamp Paper ka upyog karein.</li>
+                    <li><strong>2. Notary Attestation:</strong> Notary Advocate ki mohar avashyak hai.</li>
+                </ul>`;
+            openModal('suggestionModal');
+        }
+
+        function openDlSuggestion() {
+            document.getElementById('suggTitle').innerHTML = `<i class="fa-solid fa-id-card" style="color:#3b82f6;"></i> Driving License Suggestions`;
+            document.getElementById('suggContent').innerHTML = `
+                <ul style="padding-left: 20px;">
+                    <li><strong>1. Parivahan Portal:</strong> parivahan.gov.in se apply karein.</li>
+                </ul>`;
+            openModal('suggestionModal');
+        }
+
+        /* Image Tools */
+        function openImgToPdfModal() { openModal('imgToPdfModal'); }
+        function convertImagesToPdf() {
+            const files = document.getElementById('imgPdfInput').files;
+            if(files.length === 0) { alert("Image select karein!"); return; }
+            const container = document.createElement('div');
+            let loadedImages = 0;
+            for(let i=0; i<files.length; i++) {
+                const img = document.createElement('img');
+                img.src = URL.createObjectURL(files[i]);
+                img.style.width = '100%';
+                img.style.marginBottom = '10px';
+                img.onload = function() {
+                    loadedImages++;
+                    if(loadedImages === files.length) {
+                        html2pdf().from(container).save('Document.pdf');
+                        closeModal('imgToPdfModal');
+                    }
+                }
+                container.appendChild(img);
+            }
+        }
+
+        let loadedImgObj = null;
+        function openResizerModal() { openModal('resizerModal'); }
+        function previewResizeImage(e) {
+            const file = e.target.files[0];
+            if(file) {
+                loadedImgObj = new Image();
+                loadedImgObj.src = URL.createObjectURL(file);
+                loadedImgObj.onload = function() {
+                    document.getElementById('imgWidth').value = loadedImgObj.width;
+                    document.getElementById('imgHeight').value = loadedImgObj.height;
+                }
+            }
+        }
+
+        function processResizeAndDownload() {
+            if(!loadedImgObj) { alert("Image upload karein!"); return; }
+            const w = parseInt(document.getElementById('imgWidth').value);
+            const h = parseInt(document.getElementById('imgHeight').value);
+            if(!w || !h) { alert("Width & Height enter karein!"); return; }
+            const canvas = document.getElementById('resizeCanvas');
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(loadedImgObj, 0, 0, w, h);
+            const link = document.createElement('a');
+            link.download = 'Resized_Image.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            closeModal('resizerModal');
+        }
+
+        /* AI & Templates */
+        async function generateApplicationWithAI() {
+            const userApiKey = document.getElementById('userApiKey').value.trim();
+            if (!userApiKey) { alert('Google Gemini API Key enter karein!'); return; }
             const name = document.getElementById('userName').value.trim();
             const phone = document.getElementById('userPhone').value.trim();
             const address = document.getElementById('userAddress').value.trim();
@@ -665,45 +1141,27 @@
             const lang = document.getElementById('appLang').value;
             const reason = document.getElementById('appReason').value.trim();
 
-            if (!name || !reason) {
-                alert('Kripya apna naam aur application ka reason zaroor bharein!');
-                return;
-            }
+            if (!name || !reason) { alert('Aapka naam aur reason required hai!'); return; }
 
             document.getElementById('loadingBox').style.display = 'block';
             document.getElementById('outputBox').style.display = 'none';
 
-            const prompt = `Write a formal, legally structured official application letter in ${lang} language.
-            Details provided:
-            - Applicant Name: ${name}
-            - Phone: ${phone}
-            - Address: ${address}
-            - Recipient Authority: ${recipient || 'Concerned Authority'}
-            - Reason/Topic Details: ${reason}
-            
-            Requirements:
-            - Use proper official format (Seva me / To, Subject/Vishay, Salutation, Body paragraphs, Request, Signature block).
-            - Keep exact placeholders or filled data where provided.
-            - Format it neatly so it is ready to print. Do not include markdown code block syntax.`;
+            const prompt = `Write a formal official application letter in ${lang}. Applicant: ${name}, Phone: ${phone}, Address: ${address}, Recipient: ${recipient}, Reason: ${reason}`;
 
             try {
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${userApiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{ parts: [{ text: prompt }] }]
-                    })
+                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
                 });
 
                 const data = await response.json();
-                
                 if (data.candidates && data.candidates[0].content.parts[0].text) {
-                    const resultText = data.candidates[0].content.parts[0].text;
-                    document.getElementById('aiGeneratedText').innerText = resultText;
+                    document.getElementById('aiGeneratedText').innerText = data.candidates[0].content.parts[0].text;
                     document.getElementById('outputBox').style.display = 'block';
                     window.scrollTo({ top: document.getElementById('outputBox').offsetTop - 20, behavior: 'smooth' });
                 } else {
-                    alert('API Error: Kripya API Key sahi se check karein! Details: ' + (data.error ? data.error.message : 'Invalid Key'));
+                    alert('API Key error!');
                 }
             } catch (error) {
                 alert('Connection error: ' + error.message);
@@ -713,13 +1171,11 @@
         }
 
         function copyAIText() {
-            const text = document.getElementById('aiGeneratedText').innerText;
-            navigator.clipboard.writeText(text).then(() => { alert('Application copy ho gaya!'); });
+            navigator.clipboard.writeText(document.getElementById('aiGeneratedText').innerText).then(() => { alert('Copy ho gaya!'); });
         }
 
         function downloadAIPDF() {
-            const element = document.getElementById('aiGeneratedText');
-            html2pdf().from(element).save('Application.pdf');
+            html2pdf().from(document.getElementById('aiGeneratedText')).save('Application.pdf');
         }
 
         function filterCards() {
@@ -728,49 +1184,17 @@
             for (let i = 0; i < cards.length; i++) {
                 let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
                 let desc = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
-                if (title.includes(input) || desc.includes(input)) {
-                    cards[i].style.display = "";
-                } else {
-                    cards[i].style.display = "none";
-                }
+                cards[i].style.display = (title.includes(input) || desc.includes(input)) ? "" : "none";
             }
         }
 
-        function openFeedback() {
-            alert("Feedback: Aap apne sujhav Er. Meraj Ansari ko direct Help/Mail button dwara bhej sakte hain!");
-        }
-
-        function openHelp() {
-            const myEmail = "meraj274302@gmail.com"; 
-            const subject = encodeURIComponent("Help & Support Request - Legal Application Portal");
-            const body = encodeURIComponent("Hello Er. Meraj Ansari,\n\nMujhe Portal par yeh samasya/sahayata chahiye:\n\nName:\nContact Number:\nIssue Detail:");
-            
-            window.location.href = `mailto:${myEmail}?subject=${subject}&body=${body}`;
-        }
-
-        function openOrder() {
-            window.scrollTo({ top: document.getElementById('paidServiceSection').offsetTop - 20, behavior: 'smooth' });
-        }
+        function openFeedback() { alert("Feedback mail ke zariye bhej sakte hain!"); }
+        function openHelp() { window.location.href = "mailto:meraj274302@gmail.com"; }
+        function openOrder() { window.scrollTo({ top: document.getElementById('paidServiceSection').offsetTop - 20, behavior: 'smooth' }); }
 
         function showTemplate(type) {
-            let text = "";
-            const today = new Date().toLocaleDateString('hi-IN', { day: '2-digit', month: '2-digit', year: 'numeric' });
-
-            if (type === 'court') {
-                text = `समक्ष: श्रीमान कार्यपालक दंडाधिकारी / नोटरी पब्लिक महोदय,\n[कोर्ट / ज़िला का नाम]\n\nशपथ पत्र (AFFIDAVIT)\n\nमैं, [आपका नाम], पिता श्री [पिता का नाम], निवासी [पूरा पता], शपथपूर्वक निम्नलिखित कथन करता/करती हूँ:\n\n1. यह कि मैं भारत का/की स्थायी नागरिक हूँ।\n2. यह कि [यहाँ अपनी समस्या या नाम सुधार / शपथ का मुख्य कारण लिखें]।\n3. यह कि मेरे द्वारा दी गई उपर्युक्त सभी जानकारियाँ सत्य एवं सही हैं, इसमें कुछ भी छिपाया नहीं गया है।\n\nसत्यापन (Verification):\nशपथी के हस्ताक्षर: ______________\nस्थान: [स्थान]\nदिनांक: ${today}`;
-            } else if (type === 'college') {
-                text = `सेवा में,\nश्रीमान प्रधानाचार्य / प्राचार्य महोदय,\n[कॉलेज / स्कूल का नाम], [शहर]\n\nदिनांक: ${today}\n\nविषय: दो दिनों के अवकाश / टी.सी (TC) निर्गत करने हेतु आवेदन पत्र।\n\nमहोदय,\nसविनय निवेदन है कि मेरा नाम [आपका नाम] है। मैं आपके कॉलेज में [कक्षा / रोल नंबर] का छात्र/छात्रा हूँ।\n[यहाँ कारण लिखें: जैसे अस्वस्थ होने के कारण / उच्च शिक्षा हेतु TC प्राप्त करने हेतु] मैं उपस्थित होने में असमर्थ हूँ।\n\nअतः आपसे प्रार्थना है कि मुझे [कारण के अनुसार अनुमति / TC] प्रदान करने की कृपा करें।\n\nआज्ञाकारी छात्र/छात्रा,\nनाम: [आपका नाम]\nरोल नंबर: [Roll No]\nकक्षा: [Class]`;
-            } else if (type === 'resignation') {
-                text = `To,\nThe HR Manager / Department Head,\n[Company / Organization Name],\n[City, Location]\n\nDate: ${today}\n\nSubject: Resignation Letter from the position of [Your Designation].\n\nDear Sir/Madam,\n\nPlease accept this letter as formal notification that I am resigning from my position as [Your Designation] at [Company Name]. My last working day will be [Last Working Date].\n\nI am grateful for the opportunities I have had during my time with the company. I will ensure a smooth handover of my responsibilities during my notice period.\n\nThank you for your support.\n\nSincerely,\n[Your Name]\n[Employee ID]\n[Contact Number]`;
-            } else if (type === 'phonepe') {
-                text = `To,\nThe Nodal Officer / Fraud Grievance Cell,\nPhonePe / Bank Customer Support,\n\nDate: ${today}\n\nSubject: Complaint regarding Incorrect UPI Transaction / Money Transfer Fraud.\n\nRespected Sir/Madam,\n\nI am writing to report an urgent transaction issue on PhonePe / UPI.\n\nTransaction Details:\n- Date & Time: [Date & Time]\n- UTR / Transaction ID: [Transaction ID/UTR]\n- Amount: Rs. [Amount]\n- Receiver VPA/Account: [Wrong VPA / Account No]\n\nIssue Description:\n[Describe: Wrong transfer by mistake / Amount deducted but not credited].\n\nKindly initiate a reversal chargeback and resolve this issue at the earliest.\n\nYours faithfully,\nName: [Your Name]\nMobile No: [Registered Phone Number]\nUPI ID: [Your UPI ID]`;
-            } else if (type === 'police') {
-                text = `सेवा में,\nश्रीमान थाना अध्यक्ष महोदय,\n[थाना का नाम], [ज़िला]\n\nदिनांक: ${today}\n\nविषय: मोबाइल खो जाने / चोरी होने के संबंध में आवेदन पत्र।\n\nमहोदय,\nसविनय निवेदन है कि मेरा नाम [आपका नाम] है। मैं [आपका पता] का निवासी हूँ।\nदिनांक [तारीख] को मेरा मोबाइल फोन [स्थान का नाम] पर खो गया/चोरी हो गया है।\n\nमोबाइल विवरण:\n- कंपनी/मॉडल: [Model]\n- IMEI Number: [IMEI]\n- सिम नंबर: [Mobile No]\n\nअतः आपसे निवेदन है कि मेरी शिकायत दर्ज कर उचित कानूनी कार्रवाई करने की कृपा करें।\n\nभवदीय,\n[आपका नाम]\n[फ़ोन नंबर]\n[हस्ताक्षर]`;
-            } else if (type === 'bank') {
-                text = `सेवा में,\nश्रीमान शाखा प्रबंधक (Branch Manager),\n[बैंक का नाम], [शाखा का नाम]\n\nदिनांक: ${today}\n\nविषय: नया एटीएम कार्ड जारी करने हेतु आवेदन पत्र।\n\nमहोदय,\nसविनय निवेदन है कि मेरा एक बचत खाता आपकी शाखा में है, जिसका खाता संख्या [Account Number] है।\nमेरा पुराना एटीएम कार्ड खो गया है, जिसके कारण मुझे लेन-देन में असुविधा हो रही है।\n\nअतः आपसे निवेदन है कि मेरे खाते पर नया एटीएम कार्ड जारी करने की कृपा करें।\n\nधन्यवाद।\n\nखाताधारक:\nनाम: [आपका नाम]\nखाता संख्या: [Account No]\nमो०: [Mobile No]\nहस्ताक्षर: __________`;
-            } else {
-                text = `सेवा में,\nश्रीमान अंचलाधिकारी (CO) महोदय,\n[अंचल का नाम], [ज़िला]\n\nदिनांक: ${today}\n\nविषय: भूमि सीमांकन / नपाई हेतु आवेदन पत्र।\n\nमहोदय,\nसप्रेम निवेदन है कि प्रार्थी [आपका नाम], ग्राम [गाँव], थाना [थाना] का निवासी है।\nप्रार्थी की मौज़ा [मौजा] में खाता सं० [Khata], खेसरा सं० [Khesra] की भूमि स्थित है।\n\nअतः श्रीमान से प्रार्थना है कि उक्त भूमि की सरकारी अमीन द्वारा नपाई कराने की कृपा की जाए।\n\nभवदीय,\n[आपका नाम]\n[मोबाइल नंबर]`;
-            }
+            const today = new Date().toLocaleDateString('hi-IN');
+            let text = `सेवा में,\n[अधिकारी का पद],\n[स्थान]\n\nविषय: आवेदन पत्र\n\nमहोदय,\nसविनय निवेदन है कि प्रार्थी [आपका नाम] है। [यहाँ अपनी समस्या का विस्तार से वर्णन करें]।\n\nदिनांक: ${today}\nभवदीय,\n[आपका नाम]`;
             document.getElementById('aiGeneratedText').innerText = text;
             document.getElementById('outputBox').style.display = 'block';
             window.scrollTo({ top: document.getElementById('outputBox').offsetTop - 20, behavior: 'smooth' });
