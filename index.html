@@ -85,6 +85,17 @@
             border: 1px solid rgba(255,255,255,0.2);
         }
 
+        .visitor-count {
+            margin-top: 10px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 6px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .container {
             max-width: 1050px;
             margin: 2rem auto;
@@ -176,6 +187,53 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+
+        /* Premium Service Card */
+        .paid-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fef3c7 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.25);
+        }
+
+        .paid-card h2 {
+            color: #b45309;
+            margin-top: 0;
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .payment-box {
+            background: #ffffff;
+            padding: 1.2rem;
+            border-radius: 14px;
+            border: 1px dashed #f59e0b;
+            margin: 1rem 0;
+            font-size: 0.98rem;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.6);
         }
 
         .form-group {
@@ -396,7 +454,7 @@
             .side-btn { font-size: 0.8rem; padding: 8px 12px; }
             .row { flex-direction: column; gap: 0; }
             header h1 { font-size: 1.6rem; }
-            .form-card { padding: 1.2rem; }
+            .form-card, .paid-card { padding: 1.2rem; }
         }
     </style>
 </head>
@@ -413,6 +471,12 @@
         <img src="IMG_5326 (1).JPEG" alt="Er. Meraj Ansari" class="profile-photo" onerror="this.style.display='none'">
         <h1>Legal & Official Application Portal</h1>
         <p><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Formats & AI Writer | Created by <strong>Er. Meraj Ansari</strong> (Civil Engineer)</p>
+        
+        <!-- Visitor Counter -->
+        <div class="visitor-count">
+            <i class="fa-solid fa-users" style="color: #60a5fa;"></i> Total Visits: 
+            <img src="https://profile-counter.glitch.me/meraj274302-legal-portal/count.svg" alt="Visitors" style="height: 20px; vertical-align: middle;">
+        </div>
     </header>
 
     <div class="container">
@@ -422,7 +486,30 @@
             <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="🔍 Search (Police, Court, Bank, Resignation, PhonePe, College, RTI)...">
         </div>
 
-        <!-- Section 1: AI Custom Generator -->
+        <!-- Section 1: Custom Application Writing Service (Paid ₹5) -->
+        <div class="paid-card" id="paidServiceSection">
+            <h2><i class="fa-solid fa-pen-fancy"></i> Custom Legal Application Writing Service</h2>
+            <p style="color: #475569; margin-bottom: 0.5rem;">Kya aapko bilkul accurate, legal ya complex application likhwani hai? Hamare expert dwara 10 minutes me application taiyar karwayein.</p>
+            
+            <div class="payment-box">
+                <p style="margin: 0 0 8px 0; font-weight: 700; color: #1e293b;">
+                    <i class="fa-solid fa-indian-rupee-sign" style="color: #10b981;"></i> Charge: Sirf ₹5 / Application
+                </p>
+                <p style="margin: 0; color: #334155;">
+                    <strong>PhonePe / GPay Number:</strong> <span style="background: #fef08a; padding: 2px 8px; border-radius: 6px; font-weight: 700;">9923343901</span>
+                </p>
+            </div>
+
+            <p style="font-size: 0.9rem; color: #475569;">
+                <strong>Process:</strong> ₹5 ka PhonePe karein aur payment screenshot ke saath apni detail niche button par click karke WhatsApp karein.
+            </p>
+
+            <a href="https://wa.me/919923343901?text=Hello%20Er.%20Meraj%20Ansari,%20Maine%20%E2%82%B95%20ka%20PhonePe%20kar%20diya%20hai.%20Mujhe%20custom%20application%20banwani%20hai." target="_blank" class="btn-whatsapp">
+                <i class="fa-brands fa-whatsapp fa-lg"></i> Direct WhatsApp Par Order Karein (₹5)
+            </a>
+        </div>
+
+        <!-- Section 2: AI Custom Generator -->
         <div class="form-card">
             <h2><i class="fa-solid fa-robot" style="color: #2563eb;"></i> AI Custom Application Generator</h2>
             <p style="font-size:0.9rem; color:#475569; margin-top:-5px;">Apni Google Gemini API Key paste karein aur 1-click me kisi bhi vishay par smart application generate karein.</p>
@@ -485,7 +572,7 @@
             </div>
         </div>
 
-        <!-- Section 2: Standard Application Formats (Readymade Cards) -->
+        <!-- Section 3: Standard Application Formats (Readymade Cards) -->
         <h2 class="section-title"><i class="fa-solid fa-folder-open" style="color: #f59e0b;"></i> Ready-made Application Templates</h2>
         
         <div class="card-grid" id="cardGrid">
@@ -654,7 +741,6 @@
         }
 
         function openHelp() {
-            // Aapki email id yahan update kar di gayi hai
             const myEmail = "meraj274302@gmail.com"; 
             const subject = encodeURIComponent("Help & Support Request - Legal Application Portal");
             const body = encodeURIComponent("Hello Er. Meraj Ansari,\n\nMujhe Portal par yeh samasya/sahayata chahiye:\n\nName:\nContact Number:\nIssue Detail:");
@@ -663,7 +749,7 @@
         }
 
         function openOrder() {
-            alert("Application Order: Special legal ya custom affidavit ke liye AI Custom Generator me apni poori detail likhein.");
+            window.scrollTo({ top: document.getElementById('paidServiceSection').offsetTop - 20, behavior: 'smooth' });
         }
 
         function showTemplate(type) {
