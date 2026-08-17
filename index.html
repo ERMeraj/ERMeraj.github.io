@@ -23,7 +23,7 @@
 
         * {
             box-sizing: border-box;
-            transition: all 0.25s ease-in-out;
+            transition: all 0.2s ease-in-out;
         }
 
         body {
@@ -44,7 +44,7 @@
             -webkit-backdrop-filter: blur(12px);
             color: white;
             text-align: center;
-            padding: 2.5rem 1rem 2rem;
+            padding: 2rem 1rem 1.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             display: flex;
@@ -53,110 +53,116 @@
         }
 
         .profile-photo {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             border: 4px solid rgba(255, 255, 255, 0.9);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             object-fit: cover;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 800;
             letter-spacing: -0.5px;
             text-shadow: 0 2px 6px rgba(0,0,0,0.4);
         }
 
         header p {
-            margin-top: 0.6rem;
+            margin-top: 0.5rem;
             opacity: 0.95;
-            font-size: 1.05rem;
+            font-size: 1rem;
             background: rgba(255, 255, 255, 0.15);
-            padding: 6px 18px;
+            padding: 5px 16px;
             border-radius: 20px;
             backdrop-filter: blur(8px);
             border: 1px solid rgba(255,255,255,0.2);
         }
 
         .visitor-count {
-            margin-top: 10px;
+            margin-top: 8px;
             background: rgba(0, 0, 0, 0.4);
-            padding: 6px 16px;
+            padding: 5px 14px;
             border-radius: 12px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
         .user-welcome-badge {
-            margin-top: 12px;
+            margin-top: 10px;
             background: rgba(16, 185, 129, 0.25);
             border: 1px solid #10b981;
             color: #ecfdf5;
-            padding: 6px 18px;
+            padding: 5px 16px;
             border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .container {
-            max-width: 1050px;
-            margin: 2rem auto;
-            padding: 0 1.2rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Floating Right Sidebar */
-        .sidebar-actions-right {
-            position: fixed;
-            right: 15px;
-            top: 45%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 1000;
-        }
-
-        /* Floating Left Sidebar */
-        .sidebar-actions-left {
-            position: fixed;
-            left: 15px;
-            top: 45%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 1000;
-        }
-
-        .side-btn {
-            background: rgba(15, 23, 42, 0.88);
-            backdrop-filter: blur(10px);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 10px 14px;
-            border-radius: 30px;
             font-size: 0.85rem;
             font-weight: 600;
+        }
+
+        /* Layout Grid */
+        .portal-layout {
+            max-width: 1250px;
+            margin: 1.8rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        /* Fixed / Static Sidebar Panel */
+        .sidebar-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 18px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar-title {
+            color: #94a3b8;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin: 6px 0 4px 6px;
+        }
+
+        /* Compact Action Buttons */
+        .side-btn {
+            color: white;
+            border: none;
+            padding: 9px 12px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             display: flex;
             align-items: center;
             gap: 8px;
             text-decoration: none;
-            white-space: nowrap;
+            width: 100%;
+            text-align: left;
         }
 
-        .sidebar-actions-left .side-btn:hover { transform: translateX(5px); }
-        .sidebar-actions-right .side-btn:hover { transform: translateX(-5px); }
+        .side-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
 
-        /* Colourful Buttons */
+        /* Button Colors */
+        .side-btn.btn-chat { background: linear-gradient(135deg, #6366f1, #4f46e5); }
         .side-btn.btn-fir { background: linear-gradient(135deg, #ef4444, #b91c1c); }
         .side-btn.btn-court { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
         .side-btn.btn-dl { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
@@ -164,32 +170,35 @@
         .side-btn.btn-resize { background: linear-gradient(135deg, #f59e0b, #d97706); }
         .side-btn.btn-profile { background: linear-gradient(135deg, #ec4899, #be185d); }
         .side-btn.btn-share { background: linear-gradient(135deg, #06b6d4, #0891b2); }
-        .side-btn.btn-chat { background: linear-gradient(135deg, #6366f1, #4f46e5); }
-
         .side-btn.feedback { background: linear-gradient(135deg, #10b981, #059669); }
         .side-btn.help { background: linear-gradient(135deg, #f59e0b, #d97706); }
         .side-btn.order { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
+
+        /* Main Container */
+        .main-content {
+            width: 100%;
+        }
 
         /* Search Box */
         .search-box {
             display: flex;
             gap: 10px;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            padding: 8px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 6px 8px;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             border: 1px solid rgba(255,255,255,0.5);
         }
 
         .search-box input {
             flex: 1;
-            padding: 12px 18px;
+            padding: 10px 14px;
             border: none;
             outline: none;
-            font-size: 1rem;
-            border-radius: 12px;
+            font-size: 0.95rem;
+            border-radius: 10px;
             background: transparent;
         }
 
@@ -197,17 +206,17 @@
             background: var(--card-bg);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            border-radius: 18px;
+            padding: 1.8rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.6);
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .form-card h2 {
             margin-top: 0;
             color: #1e293b;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 800;
             display: flex;
             align-items: center;
@@ -217,16 +226,16 @@
         .paid-card {
             background: linear-gradient(135deg, #ffffff 0%, #fef3c7 100%);
             border: 2px solid #f59e0b;
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.25);
+            border-radius: 18px;
+            padding: 1.6rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.2);
         }
 
         .paid-card h2 {
             color: #b45309;
             margin-top: 0;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 800;
             display: flex;
             align-items: center;
@@ -235,93 +244,95 @@
 
         .payment-box {
             background: #ffffff;
-            padding: 1.2rem;
-            border-radius: 14px;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
             border: 1px dashed #f59e0b;
-            margin: 1rem 0;
-            font-size: 0.98rem;
+            margin: 0.8rem 0;
+            font-size: 0.92rem;
         }
 
         .pay-btn-group {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-top: 1rem;
+            margin-top: 0.8rem;
         }
 
         .btn-pay {
             background: linear-gradient(135deg, #5f259f, #391463);
             color: white;
-            padding: 12px 20px;
-            border-radius: 12px;
+            padding: 10px 16px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
+            font-size: 0.88rem;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 8px 20px rgba(95, 37, 159, 0.3);
+            box-shadow: 0 6px 15px rgba(95, 37, 159, 0.3);
         }
 
         .btn-whatsapp {
             background: linear-gradient(135deg, #25d366, #128c7e);
             color: white;
-            padding: 12px 20px;
-            border-radius: 12px;
+            padding: 10px 16px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 700;
+            font-size: 0.88rem;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
         }
 
         .form-group {
-            margin-bottom: 1.3rem;
+            margin-bottom: 1.1rem;
         }
 
         .form-group label {
             display: block;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             color: #1e293b;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
+            padding: 10px 14px;
             border: 1.5px solid #cbd5e1;
-            border-radius: 10px;
-            font-size: 0.95rem;
+            border-radius: 9px;
+            font-size: 0.9rem;
             font-family: inherit;
             background: rgba(255, 255, 255, 0.95);
         }
 
-        .row { display: flex; gap: 16px; }
+        .row { display: flex; gap: 14px; }
         .row .form-group { flex: 1; }
 
         .btn-submit {
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #0284c7 100%);
             color: white;
             border: none;
-            padding: 14px 28px;
-            border-radius: 12px;
-            font-size: 1.05rem;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 0.95rem;
             font-weight: 700;
             cursor: pointer;
             width: 100%;
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
         }
 
         .loading {
             display: none;
             text-align: center;
-            padding: 1.8rem;
+            padding: 1.5rem;
             font-weight: 700;
             color: #1e293b;
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            border-radius: 14px;
+            border-radius: 12px;
             margin-bottom: 1.5rem;
         }
 
@@ -329,38 +340,38 @@
             display: none;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            border-radius: 18px;
+            padding: 1.8rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             border: 2px solid #10b981;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .format-preview {
             background: #f8fafc;
-            padding: 2rem;
-            border-radius: 12px;
+            padding: 1.5rem;
+            border-radius: 10px;
             white-space: pre-wrap;
-            font-size: 1.05rem;
+            font-size: 1rem;
             border: 2px dashed #cbd5e1;
-            margin: 1.2rem 0;
+            margin: 1rem 0;
             color: #0f172a;
             font-family: 'Times New Roman', Times, serif;
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
-        .action-btns { display: flex; gap: 12px; }
+        .action-btns { display: flex; gap: 10px; }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: #2563eb;
             color: white;
-            padding: 10px 18px;
+            padding: 9px 16px;
             border-radius: 8px;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             font-weight: 600;
             border: none;
             cursor: pointer;
@@ -371,10 +382,10 @@
 
         .section-title {
             color: #ffffff;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             font-weight: 800;
-            margin-top: 2.5rem;
-            margin-bottom: 1.2rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -383,91 +394,94 @@
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
             margin-bottom: 2rem;
         }
 
         .card {
             background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-radius: 14px;
+            padding: 1.3rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
             border: 1px solid rgba(255, 255, 255, 0.5);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
+        .card h3 { margin-top: 0; font-size: 1.1rem; }
+        .card p { font-size: 0.85rem; color: #475569; }
+
         /* Helpdesk & Chat Forum Styles */
         .chat-container {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(14px);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            border-radius: 18px;
+            padding: 1.8rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             border: 2px solid #6366f1;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .chat-msg-box {
             background: #f1f5f9;
-            border-radius: 14px;
-            padding: 1rem 1.2rem;
-            margin-bottom: 1rem;
-            border-left: 5px solid #6366f1;
+            border-radius: 12px;
+            padding: 0.9rem 1.1rem;
+            margin-bottom: 0.9rem;
+            border-left: 4px solid #6366f1;
             position: relative;
         }
 
         .chat-user-header {
             display: flex;
             justify-content: space-between;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #64748b;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .chat-text {
+            font-size: 0.92rem;
+            color: #1e293b;
             font-weight: 600;
             margin-bottom: 6px;
         }
 
-        .chat-text {
-            font-size: 1rem;
-            color: #1e293b;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
         .admin-reply-box {
             background: #e0e7ff;
-            border-radius: 10px;
-            padding: 10px 14px;
-            margin-top: 8px;
-            border-left: 4px solid #4338ca;
-            font-size: 0.92rem;
+            border-radius: 8px;
+            padding: 8px 12px;
+            margin-top: 6px;
+            border-left: 3px solid #4338ca;
+            font-size: 0.88rem;
         }
 
         .reply-input-group {
             display: flex;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 6px;
+            margin-top: 8px;
         }
 
         .reply-input-group input {
             flex: 1;
-            padding: 8px 12px;
+            padding: 7px 10px;
             border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 0.88rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
         }
 
         .reply-btn {
             background: #4f46e5;
             color: white;
             border: none;
-            padding: 8px 14px;
-            border-radius: 8px;
+            padding: 7px 12px;
+            border-radius: 6px;
             font-weight: 600;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
 
         /* Modal CSS */
@@ -486,9 +500,9 @@
         .modal-card {
             background: white;
             width: 100%;
-            max-width: 600px;
-            border-radius: 20px;
-            padding: 2rem;
+            max-width: 550px;
+            border-radius: 18px;
+            padding: 1.8rem;
             box-shadow: 0 25px 50px rgba(0,0,0,0.3);
             position: relative;
             max-height: 90vh;
@@ -499,7 +513,7 @@
             position: absolute;
             top: 15px;
             right: 20px;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             cursor: pointer;
             color: #64748b;
         }
@@ -507,18 +521,19 @@
         .share-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            margin-top: 1.2rem;
+            gap: 10px;
+            margin-top: 1rem;
         }
 
         .share-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 12px;
-            border-radius: 12px;
+            gap: 8px;
+            padding: 10px;
+            border-radius: 10px;
             color: white;
+            font-size: 0.88rem;
             font-weight: 700;
             text-decoration: none;
         }
@@ -531,50 +546,32 @@
 
         footer {
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
             background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(10px);
             color: #cbd5e1;
-            margin-top: 4rem;
+            margin-top: 3rem;
+            font-size: 0.88rem;
         }
 
         @media (max-width: 900px) {
-            .sidebar-actions-left, .sidebar-actions-right {
-                position: static;
-                transform: none;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                margin-bottom: 1rem;
+            .portal-layout {
+                grid-template-columns: 1fr;
             }
-            .side-btn { font-size: 0.8rem; padding: 8px 12px; }
+            .sidebar-panel {
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            }
+            .sidebar-title { grid-column: 1 / -1; }
             .row { flex-direction: column; gap: 0; }
-            header h1 { font-size: 1.6rem; }
+            header h1 { font-size: 1.5rem; }
             .form-card, .paid-card { padding: 1.2rem; }
             .share-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Floating Left Sidebar Navigation Buttons -->
-    <div class="sidebar-actions-left">
-        <button class="side-btn btn-chat" onclick="scrollToChat()"><i class="fa-solid fa-comments"></i> Help Desk / Ask Question</button>
-        <button class="side-btn btn-fir" onclick="openFirSuggestion()"><i class="fa-solid fa-shield-halved"></i> FIR Suggestion</button>
-        <button class="side-btn btn-court" onclick="openCourtSuggestion()"><i class="fa-solid fa-gavel"></i> Court Suggestion</button>
-        <button class="side-btn btn-dl" onclick="openDlSuggestion()"><i class="fa-solid fa-id-card"></i> DL Suggestion</button>
-        <button class="side-btn btn-pdf-tool" onclick="openImgToPdfModal()"><i class="fa-solid fa-file-pdf"></i> Image to PDF</button>
-        <button class="side-btn btn-resize" onclick="openResizerModal()"><i class="fa-solid fa-crop-simple"></i> Image Resizer</button>
-        <button class="side-btn btn-profile" onclick="openProfileModal()"><i class="fa-solid fa-circle-user"></i> My Profile / Login</button>
-        <button class="side-btn btn-share" onclick="openShareModal()"><i class="fa-solid fa-share-nodes"></i> Share Website</button>
-    </div>
-
-    <!-- Floating Right Sidebar Action Buttons -->
-    <div class="sidebar-actions-right">
-        <button class="side-btn feedback" onclick="openFeedback()"><i class="fa-solid fa-comment-dots"></i> Feedback</button>
-        <button class="side-btn help" onclick="openHelp()"><i class="fa-solid fa-envelope"></i> Help / Mail Us</button>
-        <button class="side-btn order" onclick="openOrder()"><i class="fa-solid fa-pen-nib"></i> App Order</button>
-    </div>
 
     <header>
         <img src="IMG_5326 (1).JPEG" alt="Er. Meraj Ansari" class="profile-photo" onerror="this.style.display='none'">
@@ -583,208 +580,232 @@
         
         <div class="visitor-count">
             <i class="fa-solid fa-users" style="color: #60a5fa;"></i> Total Visits: 
-            <img src="https://profile-counter.glitch.me/meraj274302-legal-portal/count.svg" alt="Visitors" style="height: 20px; vertical-align: middle;">
+            <img src="https://profile-counter.glitch.me/meraj274302-legal-portal/count.svg" alt="Visitors" style="height: 18px; vertical-align: middle;">
         </div>
         <div id="userBadge" class="user-welcome-badge">
             <i class="fa-solid fa-user-check"></i> Status: Guest Mode (Without Profile)
         </div>
     </header>
 
-    <div class="container">
+    <div class="portal-layout">
 
-        <!-- Search Bar -->
-        <div class="search-box">
-            <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="🔍 Search (Police, Court, Bank, Resignation, PhonePe, College, RTI)...">
+        <!-- Left Static Compact Navigation Sidebar -->
+        <div class="sidebar-panel">
+            <div class="sidebar-title">Help & Services</div>
+            <button class="side-btn btn-chat" onclick="scrollToChat()"><i class="fa-solid fa-comments"></i> Ask Help Desk</button>
+            <button class="side-btn order" onclick="openOrder()"><i class="fa-solid fa-pen-nib"></i> App Order (₹5)</button>
+            <button class="side-btn btn-fir" onclick="openFirSuggestion()"><i class="fa-solid fa-shield-halved"></i> FIR Help</button>
+            <button class="side-btn btn-court" onclick="openCourtSuggestion()"><i class="fa-solid fa-gavel"></i> Court Help</button>
+            <button class="side-btn btn-dl" onclick="openDlSuggestion()"><i class="fa-solid fa-id-card"></i> DL Help</button>
+
+            <div class="sidebar-title">Quick Tools</div>
+            <button class="side-btn btn-pdf-tool" onclick="openImgToPdfModal()"><i class="fa-solid fa-file-pdf"></i> Image to PDF</button>
+            <button class="side-btn btn-resize" onclick="openResizerModal()"><i class="fa-solid fa-crop-simple"></i> Image Resizer</button>
+            <button class="side-btn btn-profile" onclick="openProfileModal()"><i class="fa-solid fa-circle-user"></i> My Profile</button>
+
+            <div class="sidebar-title">Support</div>
+            <button class="side-btn btn-share" onclick="openShareModal()"><i class="fa-solid fa-share-nodes"></i> Share Website</button>
+            <button class="side-btn help" onclick="openHelp()"><i class="fa-solid fa-envelope"></i> Email Us</button>
+            <button class="side-btn feedback" onclick="openFeedback()"><i class="fa-solid fa-comment-dots"></i> Feedback</button>
         </div>
 
-        <!-- Section 1: Custom Application Writing Service (Paid ₹5) -->
-        <div class="paid-card" id="paidServiceSection">
-            <h2><i class="fa-solid fa-pen-fancy"></i> Custom Legal Application Writing Service</h2>
-            <p style="color: #475569; margin-bottom: 0.5rem;">Kya aapko bilkul accurate, legal ya complex application likhwani hai? Expert dwara 10 minutes me application taiyar karwayein.</p>
-            
-            <div class="payment-box">
-                <p style="margin: 0 0 6px 0; font-weight: 700; color: #1e293b;">
-                    <i class="fa-solid fa-indian-rupee-sign" style="color: #10b981;"></i> Service Charge: Sirf ₹5 / Application
-                </p>
-                <p style="margin: 0; color: #475569; font-size: 0.9rem;">
-                    Niche <strong>Pay ₹5 via PhonePe / UPI</strong> button par click karke direct payment karein. PhonePe app automatically open ho jayega.
-                </p>
+        <!-- Right Main Application Section -->
+        <div class="main-content">
 
-                <div class="pay-btn-group">
-                    <a href="upi://pay?pa=9923343901@ybl&pn=Er%20Meraj%20Ansari&am=5&cu=INR&tn=Legal%20Application%20Writing%20Fee" class="btn-pay">
-                        <i class="fa-solid fa-wallet"></i> Pay ₹5 via PhonePe / UPI
-                    </a>
-                    <a href="https://wa.me/919923343901?text=Hello%20Er.%20Meraj%20Ansari,%20Maine%20%E2%82%B95%20ka%20Payment%20kar%20diya%20hai.%20Mujhe%20custom%20application%20banwani%20hai." target="_blank" class="btn-whatsapp">
-                        <i class="fa-brands fa-whatsapp fa-lg"></i> Send Screenshot on WhatsApp
-                    </a>
+            <!-- Search Bar -->
+            <div class="search-box">
+                <input type="text" id="searchInput" onkeyup="filterCards()" placeholder="🔍 Search (Police, Court, Bank, Resignation, PhonePe, College, RTI)...">
+            </div>
+
+            <!-- Section 1: Custom Application Writing Service (Paid ₹5) -->
+            <div class="paid-card" id="paidServiceSection">
+                <h2><i class="fa-solid fa-pen-fancy"></i> Custom Legal Application Writing Service</h2>
+                <p style="color: #475569; margin-bottom: 0.5rem;">Kya aapko bilkul accurate, legal ya complex application likhwani hai? Expert dwara 10 minutes me application taiyar karwayein.</p>
+                
+                <div class="payment-box">
+                    <p style="margin: 0 0 6px 0; font-weight: 700; color: #1e293b;">
+                        <i class="fa-solid fa-indian-rupee-sign" style="color: #10b981;"></i> Service Charge: Sirf ₹5 / Application
+                    </p>
+                    <p style="margin: 0; color: #475569; font-size: 0.88rem;">
+                        Niche <strong>Pay ₹5 via PhonePe / UPI</strong> button par click karke direct payment karein. PhonePe app automatically open ho jayega.
+                    </p>
+
+                    <div class="pay-btn-group">
+                        <a href="upi://pay?pa=9923343901@ybl&pn=Er%20Meraj%20Ansari&am=5&cu=INR&tn=Legal%20Application%20Writing%20Fee" class="btn-pay">
+                            <i class="fa-solid fa-wallet"></i> Pay ₹5 via PhonePe / UPI
+                        </a>
+                        <a href="https://wa.me/919923343901?text=Hello%20Er.%20Meraj%20Ansari,%20Maine%20%E2%82%B95%20ka%20Payment%20kar%20diya%20hai.%20Mujhe%20custom%20application%20banwani%20hai." target="_blank" class="btn-whatsapp">
+                            <i class="fa-brands fa-whatsapp fa-lg"></i> Send Screenshot on WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Section 2: Public Help Desk / Query & Reply Forum -->
-        <div class="chat-container" id="helpDeskSection">
-            <h2 style="color:#4f46e5; margin-top:0;"><i class="fa-solid fa-comments"></i> Public Help Desk & Query Board</h2>
-            <p style="font-size:0.9rem; color:#475569;">Apni samasya ya sawal likhe aur submit karein. Er. Meraj Ansari dwara iska jawab yahin par diya jayega.</p>
-            
-            <div class="form-group">
-                <textarea id="chatInput" rows="3" placeholder="Apni samasya ya sawal detail me likhein (e.g. Sir, Zameen napai ke liye CO ko application kaise likhein?)..."></textarea>
-            </div>
-            <button class="btn-submit" style="background: linear-gradient(135deg, #6366f1, #4f46e5);" onclick="postUserQuery()">
-                <i class="fa-solid fa-paper-plane"></i> Submit Samasya / Question
-            </button>
-
-            <hr style="margin: 1.8rem 0; border-top: 1px solid #cbd5e1;">
-
-            <h3 style="color:#1e293b;"><i class="fa-solid fa-list-check"></i> Recent Questions & Answers (Help Desk):</h3>
-            <div id="chatMessagesList">
-                <!-- Messages will appear here -->
-            </div>
-        </div>
-
-        <!-- Section 3: AI Custom Generator -->
-        <div class="form-card">
-            <h2><i class="fa-solid fa-robot" style="color: #2563eb;"></i> AI Custom Application Generator</h2>
-            <p style="font-size:0.9rem; color:#475569; margin-top:-5px;">Apni Google Gemini API Key paste karein aur 1-click me kisi bhi vishay par smart application generate karein.</p>
-            
-            <div class="form-group">
-                <label style="color: #dc2626;"><i class="fa-solid fa-key"></i> Google Gemini API Key:</label>
-                <input type="password" id="userApiKey" placeholder="Paste your Gemini API key (e.g. AIzaSy...)">
-            </div>
-
-            <div class="row">
+            <!-- Section 2: Public Help Desk / Query & Reply Forum -->
+            <div class="chat-container" id="helpDeskSection">
+                <h2 style="color:#4f46e5; margin-top:0;"><i class="fa-solid fa-comments"></i> Public Help Desk & Query Board</h2>
+                <p style="font-size:0.88rem; color:#475569;">Apni samasya ya sawal likhe aur submit karein. Er. Meraj Ansari dwara iska jawab yahin par diya jayega.</p>
+                
                 <div class="form-group">
-                    <label><i class="fa-solid fa-user"></i> Aapka Naam (Applicant Name):</label>
-                    <input type="text" id="userName" placeholder="Ex: Meraj Ansari">
+                    <textarea id="chatInput" rows="3" placeholder="Apni samasya ya sawal detail me likhein (e.g. Sir, Zameen napai ke liye CO ko application kaise likhein?)..."></textarea>
                 </div>
+                <button class="btn-submit" style="background: linear-gradient(135deg, #6366f1, #4f46e5);" onclick="postUserQuery()">
+                    <i class="fa-solid fa-paper-plane"></i> Submit Samasya / Question
+                </button>
+
+                <hr style="margin: 1.5rem 0; border-top: 1px solid #cbd5e1;">
+
+                <h3 style="color:#1e293b; font-size:1.1rem;"><i class="fa-solid fa-list-check"></i> Recent Questions & Answers (Help Desk):</h3>
+                <div id="chatMessagesList">
+                    <!-- Messages will appear here -->
+                </div>
+            </div>
+
+            <!-- Section 3: AI Custom Generator -->
+            <div class="form-card">
+                <h2><i class="fa-solid fa-robot" style="color: #2563eb;"></i> AI Custom Application Generator</h2>
+                <p style="font-size:0.88rem; color:#475569; margin-top:-5px;">Apni Google Gemini API Key paste karein aur 1-click me kisi bhi vishay par smart application generate karein.</p>
+                
                 <div class="form-group">
-                    <label><i class="fa-solid fa-phone"></i> Mobile Number:</label>
-                    <input type="text" id="userPhone" placeholder="Ex: 9876543210">
+                    <label style="color: #dc2626;"><i class="fa-solid fa-key"></i> Google Gemini API Key:</label>
+                    <input type="password" id="userApiKey" placeholder="Paste your Gemini API key (e.g. AIzaSy...)">
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label><i class="fa-solid fa-location-dot"></i> Aapka Pura Pata (Address):</label>
-                <input type="text" id="userAddress" placeholder="Ex: Gram-, Post-, Thana-, Zila-">
-            </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-user"></i> Aapka Naam (Applicant Name):</label>
+                        <input type="text" id="userName" placeholder="Ex: Meraj Ansari">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-phone"></i> Mobile Number:</label>
+                        <input type="text" id="userPhone" placeholder="Ex: 9876543210">
+                    </div>
+                </div>
 
-            <div class="row">
                 <div class="form-group">
-                    <label><i class="fa-solid fa-building-user"></i> Kisko Application Deni Hai (Recipient):</label>
-                    <input type="text" id="recipient" placeholder="Ex: Court Notary / Principal / Manager / Thana Adhyaksh">
+                    <label><i class="fa-solid fa-location-dot"></i> Aapka Pura Pata (Address):</label>
+                    <input type="text" id="userAddress" placeholder="Ex: Gram-, Post-, Thana-, Zila-">
                 </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-building-user"></i> Kisko Application Deni Hai (Recipient):</label>
+                        <input type="text" id="recipient" placeholder="Ex: Court Notary / Principal / Manager / Thana Adhyaksh">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-language"></i> Bhasha (Language):</label>
+                        <select id="appLang">
+                            <option value="Hindi">Hindi (हिंदी)</option>
+                            <option value="English">English</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="form-group">
-                    <label><i class="fa-solid fa-language"></i> Bhasha (Language):</label>
-                    <select id="appLang">
-                        <option value="Hindi">Hindi (हिंदी)</option>
-                        <option value="English">English</option>
-                    </select>
+                    <label><i class="fa-solid fa-pen-to-square"></i> Wajah / Description (Kyon likh rahe hain):</label>
+                    <textarea id="appReason" rows="3" placeholder="Detail me likhein: Jaise Notary affidavit, PhonePe wrong payment refund, Resignation letter, College Leave/TC, Police FIR, etc."></textarea>
+                </div>
+
+                <button class="btn-submit" onclick="generateApplicationWithAI()"><i class="fa-solid fa-bolt"></i> AI Se Application Banayein</button>
+            </div>
+
+            <div class="loading" id="loadingBox">
+                <i class="fa-solid fa-spinner fa-spin fa-2x" style="color:#2563eb; margin-bottom:10px;"></i><br>
+                AI Aapki Application Clear Format Me Taiyar Kar Raha Hai... Kripya Wait Karein!
+            </div>
+
+            <div class="output-card" id="outputBox">
+                <h3 style="color: #059669; margin-top: 0;"><i class="fa-solid fa-circle-check"></i> Aapki Generated Application:</h3>
+                <div class="format-preview" id="aiGeneratedText"></div>
+                
+                <div class="action-btns">
+                    <button class="btn btn-copy" onclick="copyAIText()"><i class="fa-solid fa-copy"></i> Copy Text</button>
+                    <button class="btn btn-pdf" onclick="downloadAIPDF()"><i class="fa-solid fa-file-pdf"></i> Download PDF</button>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label><i class="fa-solid fa-pen-to-square"></i> Wajah / Description (Kyon likh rahe hain):</label>
-                <textarea id="appReason" rows="3" placeholder="Detail me likhein: Jaise Notary affidavit, PhonePe wrong payment refund, Resignation letter, College Leave/TC, Police FIR, etc."></textarea>
-            </div>
-
-            <button class="btn-submit" onclick="generateApplicationWithAI()"><i class="fa-solid fa-bolt"></i> AI Se Application Banayein</button>
-        </div>
-
-        <div class="loading" id="loadingBox">
-            <i class="fa-solid fa-spinner fa-spin fa-2x" style="color:#2563eb; margin-bottom:10px;"></i><br>
-            AI Aapki Application Clear Format Me Taiyar Kar Raha Hai... Kripya Wait Karein!
-        </div>
-
-        <div class="output-card" id="outputBox">
-            <h3 style="color: #059669; margin-top: 0;"><i class="fa-solid fa-circle-check"></i> Aapki Generated Application:</h3>
-            <div class="format-preview" id="aiGeneratedText"></div>
+            <!-- Section 4: Standard Application Formats (Readymade Cards) -->
+            <h2 class="section-title"><i class="fa-solid fa-folder-open" style="color: #f59e0b;"></i> Ready-made Application Templates</h2>
             
-            <div class="action-btns">
-                <button class="btn btn-copy" onclick="copyAIText()"><i class="fa-solid fa-copy"></i> Copy Text</button>
-                <button class="btn btn-pdf" onclick="downloadAIPDF()"><i class="fa-solid fa-file-pdf"></i> Download PDF</button>
-            </div>
-        </div>
+            <div class="card-grid" id="cardGrid">
 
-        <!-- Section 4: Standard Application Formats (Readymade Cards) -->
-        <h2 class="section-title"><i class="fa-solid fa-folder-open" style="color: #f59e0b;"></i> Ready-made Application Templates</h2>
-        
-        <div class="card-grid" id="cardGrid">
-
-            <div class="card">
-                <div>
-                    <h3><i class="fa-solid fa-scale-unbalanced" style="color:#dc2626;"></i> Court / Notary Affidavit</h3>
-                    <p>Court Notary, Shapath Patra (Affidavit), Name Correction, ya Stamp paper Format.</p>
+                <div class="card">
+                    <div>
+                        <h3><i class="fa-solid fa-scale-unbalanced" style="color:#dc2626;"></i> Court / Notary Affidavit</h3>
+                        <p>Court Notary, Shapath Patra (Affidavit), Name Correction, ya Stamp paper Format.</p>
+                    </div>
+                    <button class="btn btn-view" onclick="showTemplate('court')">View Format</button>
                 </div>
-                <button class="btn btn-view" onclick="showTemplate('court')">View Format</button>
-            </div>
 
-            <div class="card">
-                <div>
-                    <h3><i class="fa-solid fa-graduation-cap" style="color:#0284c7;"></i> College / School Application</h3>
-                    <p>Leave Application, Character Certificate, Fee Concession, ya TC Issue karne ka format.</p>
+                <div class="card">
+                    <div>
+                        <h3><i class="fa-solid fa-graduation-cap" style="color:#0284c7;"></i> College / School Application</h3>
+                        <p>Leave Application, Character Certificate, Fee Concession, ya TC Issue karne ka format.</p>
+                    </div>
+                    <button class="btn btn-view" onclick="showTemplate('college')">View Format</button>
                 </div>
-                <button class="btn btn-view" onclick="showTemplate('college')">View Format</button>
-            </div>
 
-            <div class="card">
-                <div>
-                    <h3><i class="fa-solid fa-user-xmark" style="color:#eab308;"></i> Job Resignation Letter</h3>
-                    <p>Naukri chhodne, Resignation, Notice period serve karne ya Experience Letter ki application.</p>
+                <div class="card">
+                    <div>
+                        <h3><i class="fa-solid fa-user-xmark" style="color:#eab308;"></i> Job Resignation Letter</h3>
+                        <p>Naukri chhodne, Resignation, Notice period serve karne ya Experience Letter ki application.</p>
+                    </div>
+                    <button class="btn btn-view" onclick="showTemplate('resignation')">View Format</button>
                 </div>
-                <button class="btn btn-view" onclick="showTemplate('resignation')">View Format</button>
-            </div>
 
-            <div class="card">
-                <div>
-                    <h3><i class="fa-solid fa-mobile-retro" style="color:#10b981;"></i> PhonePe / UPI Fraud Complaint</h3>
-                    <p>PhonePe galat account me transfer, Money Failed/Deducted, ya UPI Fraud ki complaint.</p>
+                <div class="card">
+                    <div>
+                        <h3><i class="fa-solid fa-mobile-retro" style="color:#10b981;"></i> PhonePe / UPI Fraud Complaint</h3>
+                        <p>PhonePe galat account me transfer, Money Failed/Deducted, ya UPI Fraud ki complaint.</p>
+                    </div>
+                    <button class="btn btn-view" onclick="showTemplate('phonepe')">View Format</button>
                 </div>
-                <button class="btn btn-view" onclick="showTemplate('phonepe')">View Format</button>
-            </div>
 
-            <div class="card">
-                <div>
-                    <h3><i class="fa-solid fa-shield-halved" style="color:#ef4444;"></i> Police FIR / Complaint</h3>
-                    <p>Mobile chori, chori, maar-peet ya koi anya ghatna ki police FIR likhne ka format.</p>
+                <div class="card">
+                    <div>
+                        <h3><i class="fa-solid fa-shield-halved" style="color:#ef4444;"></i> Police FIR / Complaint</h3>
+                        <p>Mobile chori, chori, maar-peet ya koi anya ghatna ki police FIR likhne ka format.</p>
+                    </div>
+                    <button class="btn btn-view" onclick="showTemplate('police')">View Format</button>
                 </div>
-                <button class="btn btn-view" onclick="showTemplate('police')">View Format</button>
-            </div>
 
-            <div class="card">
-                <div>
-                    <h3><i class="fa-solid fa-building-columns" style="color:#2563eb;"></i> Bank Application</h3>
-                    <p>ATM Card apply, Passbook reissue, ya Account Unfreeze karne ki application.</p>
+                <div class="card">
+                    <div>
+                        <h3><i class="fa-solid fa-building-columns" style="color:#2563eb;"></i> Bank Application</h3>
+                        <p>ATM Card apply, Passbook reissue, ya Account Unfreeze karne ki application.</p>
+                    </div>
+                    <button class="btn btn-view" onclick="showTemplate('bank')">View Format</button>
                 </div>
-                <button class="btn btn-view" onclick="showTemplate('bank')">View Format</button>
-            </div>
 
-            <div class="card">
-                <div>
-                    <h3><i class="fa-solid fa-map-location-dot" style="color:#10b981;"></i> Land & Revenue (Zameen Napai)</h3>
-                    <p>Circle Officer (CO) / Tehsildar ko zameen napai ya simankan ke liye aavedan.</p>
+                <div class="card">
+                    <div>
+                        <h3><i class="fa-solid fa-map-location-dot" style="color:#10b981;"></i> Land & Revenue (Zameen Napai)</h3>
+                        <p>Circle Officer (CO) / Tehsildar ko zameen napai ya simankan ke liye aavedan.</p>
+                    </div>
+                    <button class="btn btn-view" onclick="showTemplate('land')">View Format</button>
                 </div>
-                <button class="btn btn-view" onclick="showTemplate('land')">View Format</button>
-            </div>
 
-            <div class="card">
-                <div>
-                    <h3><i class="fa-solid fa-scale-balanced" style="color:#8b5cf6;"></i> RTI Application</h3>
-                    <p>Kisi bhi sarkari vibhag se jaankari maangne ke liye Soochna Ka Adhikar (RTI) format.</p>
+                <div class="card">
+                    <div>
+                        <h3><i class="fa-solid fa-scale-balanced" style="color:#8b5cf6;"></i> RTI Application</h3>
+                        <p>Kisi bhi sarkari vibhag se jaankari maangne ke liye Soochna Ka Adhikar (RTI) format.</p>
+                    </div>
+                    <button class="btn btn-view" onclick="showTemplate('rti')">View Format</button>
                 </div>
-                <button class="btn btn-view" onclick="showTemplate('rti')">View Format</button>
+
             </div>
 
         </div>
-
     </div>
 
-    <!-- MODAL POPUPS FOR LEFT TOOLS -->
+    <!-- MODAL POPUPS FOR SIDEBAR TOOLS -->
 
     <!-- Share Website Modal -->
     <div class="modal-overlay" id="shareModal">
         <div class="modal-card">
             <span class="close-modal" onclick="closeModal('shareModal')">&times;</span>
             <h3><i class="fa-solid fa-share-nodes" style="color: #06b6d4;"></i> Share Portal With Friends</h3>
-            <p style="font-size: 0.9rem; color: #475569;">Is useful legal & official portal ko apne dosto aur groups me share karein taaki sabhi log iska labh le sakein!</p>
+            <p style="font-size: 0.88rem; color: #475569;">Is useful legal & official portal ko apne dosto aur groups me share karein taaki sabhi log iska labh le sakein!</p>
             
             <div class="share-grid">
                 <a id="shareWa" target="_blank" class="share-btn wa"><i class="fa-brands fa-whatsapp fa-lg"></i> WhatsApp</a>
@@ -793,7 +814,7 @@
                 <a id="shareTw" target="_blank" class="share-btn tw"><i class="fa-brands fa-x-twitter fa-lg"></i> X (Twitter)</a>
             </div>
 
-            <button class="share-btn copy" style="width: 100%; margin-top: 12px;" onclick="copyWebsiteUrl()">
+            <button class="share-btn copy" style="width: 100%; margin-top: 10px;" onclick="copyWebsiteUrl()">
                 <i class="fa-solid fa-link"></i> Copy Website Link
             </button>
         </div>
@@ -804,7 +825,7 @@
         <div class="modal-card">
             <span class="close-modal" onclick="closeModal('profileModal')">&times;</span>
             <h3><i class="fa-solid fa-user-gear" style="color: #ec4899;"></i> User Profile & Settings</h3>
-            <p style="font-size: 0.9rem; color: #475569;">Aap chahein toh apni details save karke profile bana sakte hain, ya bina profile ke bhi website completely free use kar sakte hain!</p>
+            <p style="font-size: 0.88rem; color: #475569;">Aap chahein toh apni details save karke profile bana sakte hain, ya bina profile ke bhi website completely free use kar sakte hain!</p>
             <hr>
             <div class="form-group">
                 <label>Aapka Full Name:</label>
@@ -830,9 +851,9 @@
         <div class="modal-card">
             <span class="close-modal" onclick="closeModal('imgToPdfModal')">&times;</span>
             <h3><i class="fa-solid fa-file-pdf" style="color: #10b981;"></i> Image To PDF Converter</h3>
-            <p style="font-size: 0.9rem; color: #475569;">Apni kisi bhi Photo/Document image ko select karein aur instantly PDF me convert karein.</p>
+            <p style="font-size: 0.88rem; color: #475569;">Apni kisi bhi Photo/Document image ko select karein aur instantly PDF me convert karein.</p>
             <div class="form-group">
-                <input type="file" id="imgPdfInput" accept="image/*" multiple style="padding: 10px;">
+                <input type="file" id="imgPdfInput" accept="image/*" multiple style="padding: 8px;">
             </div>
             <button class="btn-submit" onclick="convertImagesToPdf()"><i class="fa-solid fa-download"></i> Download PDF</button>
         </div>
@@ -843,7 +864,7 @@
         <div class="modal-card">
             <span class="close-modal" onclick="closeModal('resizerModal')">&times;</span>
             <h3><i class="fa-solid fa-crop-simple" style="color: #f59e0b;"></i> Image Resizer Tool</h3>
-            <p style="font-size: 0.9rem; color: #475569;">Document ya photo size (Width & Height) badalne ke liye image upload karein.</p>
+            <p style="font-size: 0.88rem; color: #475569;">Document ya photo size (Width & Height) badalne ke liye image upload karein.</p>
             <div class="form-group">
                 <input type="file" id="resizeImgInput" accept="image/*" onchange="previewResizeImage(event)">
             </div>
@@ -867,7 +888,7 @@
         <div class="modal-card">
             <span class="close-modal" onclick="closeModal('suggestionModal')">&times;</span>
             <h3 id="suggTitle"><i class="fa-solid fa-lightbulb"></i> Expert Legal Suggestion</h3>
-            <div id="suggContent" style="font-size:0.95rem; color:#334155; line-height:1.7;"></div>
+            <div id="suggContent" style="font-size:0.92rem; color:#334155; line-height:1.7;"></div>
         </div>
     </div>
 
@@ -960,7 +981,7 @@
             const messages = JSON.parse(localStorage.getItem('portal_chat_messages') || '[]');
 
             if(messages.length === 0) {
-                messagesList.innerHTML = `<p style="color:#64748b; font-size:0.9rem;">Abhi tak koi samasya submit nahi hui hai.</p>`;
+                messagesList.innerHTML = `<p style="color:#64748b; font-size:0.88rem;">Abhi tak koi samasya submit nahi hui hai.</p>`;
                 return;
             }
 
@@ -977,7 +998,7 @@
                     ${msg.reply ? `
                         <div class="admin-reply-box">
                             <strong style="color:#3730a3;"><i class="fa-solid fa-user-shield"></i> Er. Meraj Ansari (Admin):</strong>
-                            <p style="margin:4px 0 0 0; color:#1e1b4b;">${msg.reply}</p>
+                            <p style="margin:3px 0 0 0; color:#1e1b4b;">${msg.reply}</p>
                         </div>
                     ` : `
                         <div class="reply-input-group">
